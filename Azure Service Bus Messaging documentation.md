@@ -52,6 +52,26 @@ Service Bus Premium is fully compliant with the Java/Jakarta EE Java Message Ser
 
 ##### Concepts and terminology
 
+This section discusses concepts and terminology of Service Bus.
+
+###### Queues
+
+Messages are sent to and received from queues. Queues store messages until the receiving application is available to receive and process them.
+
+Messages in queues are ordered and timestamped on arrival. Once accepted by the broker, the message is always held durably in triple-redundant storage, spread across availability zones if the namespace is zone-enabled. Service Bus never leaves messages in memory or volatile storage after they've been reported to the client as accepted.
+
+Messages are delivered in pull mode, only delivering messages when requested. Unlike the busy-polling model of some other cloud queues, the pull operation can be long-lived and only complete once a message is available.
+
+###### Topics
+
+You can also use topics to send and receive messages. While a queue is often used for point-to-point communication, topics are useful in publish /subscribe scenarios.
+
+Topics can have multiple, independ
+
+###### Namespaces
+
+
+
 ##### Advanced concepts
 
 ##### Client libraries
