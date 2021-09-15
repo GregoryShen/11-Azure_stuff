@@ -66,30 +66,116 @@ Messages are delivered in pull mode, only delivering messages when requested. Un
 
 You can also use topics to send and receive messages. While a queue is often used for point-to-point communication, topics are useful in publish /subscribe scenarios.
 
-Topics can have multiple, independ
+Topics can have multiple, independent subscriptions, which attach to the topic and otherwise work exactly like queues from the receiver side. A subscriber to a topic can receive a copy of each message sent to that topic. Subscriptions are named entities. Subscriptions are durable by default, but can be configured to expire and then be automatically deleted. Via the JMS API, Service Bus Premium also allows you to create volatile subscriptions that exist for the duration of the connection.
+
+You can define rules on a subscription. A subscription rule has a **filter** to define a condition for the message to be copied into the subscription and an optional **action** that can modify message metadata. For more information, see <u>Topic filters and actions</u>. This feature is useful in the following scenarios:
+
+* You don't want a subscription to receive all messages sent to a topic
+* You want to mark up messages with extra metadata when they pass through a subscription.
 
 ###### Namespaces
 
+A namespace is a container for all messaging components(queues and topics). Multiple queues and topics can be in a single namespace, and namespaces often serve as application containers.
 
+A namespace can be compared to a server in the terminology of other brokers, but the concepts aren't directly equivalent. A Service Bus namespace is your own capacity slice of a large cluster made up of dozens of all-active virtual machines. It may optionally span three <u>Azure availability zones</u>. So, you get all the availability and robustness benefits of running the message broker at enormous scale. And, you don't need to worry about underlying complexities. Service Bus is serverless messaging.
 
 ##### Advanced concepts
+
+Service Bus includes advanced features such as message sessions, scheduled delivery, and transactions that enable you to solve more complex messaging problems. 
 
 ##### Client libraries
 
 ##### Integration
 
+
+
 ##### Next steps
 
+To get started using Service Bus messaging, see the following articles:
 
+* To compare Azure messaging services, see [Comparison of services](https://docs.microsoft.com/en-us/azure/event-grid/compare-messaging-services?toc=/azure/service-bus-messaging/toc.json&bc=/azure/service-bus-messaging/breadcrumb/toc.json).
+* Try the quickstarts for .NET, Java, or JMS.
+* To manage Service Bus resources, see Service Bus Explorer.
+* To learn more about Standard and Premium tiers and their pricing, see Service Bus pricing.
+* To learn about performance and latency for the Premium tier, see Premium Messaging.
 
 ### Concept
 
-Compare Azure messaging services
+#### [Compare Azure messaging services](https://docs.microsoft.com/en-us/azure/event-grid/compare-messaging-services?toc=/azure/service-bus-messaging/toc.json)
 
-Compare Azure queues and Services Bus queues
+Azure offers three services that assist with delivering events or messages throughout a solution. These services are:
 
-Queues, topics, and subscriptions
+* Azure Event Grid
+* Azure Event Hubs
+* Azure Service Bus
+
+Although they have some similarities, each service is designed for particular scenarios. This article describes the differences between these services, and helps you understand which one to choose for your application. In many cases, the messaging services are complementary[^1] and can be used together.
+
+##### Event vs. message services
+
+There's an important distinction between services that deliver an event and services that deliver a message.
+
+###### Event
+
+An event is a lightweight notification of a condition or a state change. The publisher of the event has no expectation about how the event is handled. The consumer of the event decides what to do with the notification. Events can be discrete units or part of a series.
+
+Discrete events report state change and are actionable. To take the next step, the consumer only needs to know that something happened. The event data has information about what happened but doesn't have the data that triggered the event. For example, an event notifies consumers that a file was created. It may have general information about the file, but it doesn't have the file itself. Discrete events are ideal for serverless solutions that need to scale.
+
+###### Message
+
+##### Azure Event Grid
+
+##### Azure Event Hubs
+
+##### Azure Service Bus
+
+##### Comparison of services
+
+##### Use the services together
+
+
+
+#### [Compare Azure queues and Services Bus queues](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted)
+
+
+
+#### [Queues, topics, and subscriptions](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-queues-topics-subscriptions)
+
+
 
 ### Architecture
 
-Reference architecture for queues and events
+#### Reference architecture for queues and events
+
+Send and receive messages - queues
+
+Secure
+
+Authentication and Authorization
+
+Authenticate with shared Access Signature
+
+Create a Service Bus queue
+
+Azure portal
+
+Azure CLI
+
+Azure PowerShell
+
+Azure Resource Manager template
+
+Publish and subscribe for messages
+
+Create Service Bus topics and subscriptions
+
+Azure portal
+
+Azure Resource Manager tempalte
+
+Monitor and manage
+
+Use PowerShell to provision entities
+
+[^1]: adj.互补的，相辅相成的
+
