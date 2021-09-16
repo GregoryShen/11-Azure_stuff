@@ -121,17 +121,31 @@ An event is a lightweight notification of a condition or a state change. The pub
 
 Discrete events report state change and are actionable. To take the next step, the consumer only needs to know that something happened. The event data has information about what happened but doesn't have the data that triggered the event. For example, an event notifies consumers that a file was created. It may have general information about the file, but it doesn't have the file itself. Discrete events are ideal for serverless solutions that need to scale.
 
+Series events report a condition and are analyzable. The events are time-ordered and interrelated. The consumer needs the sequenced series of events to analyze what happened.
+
 ###### Message
+
+A message is raw data produced by a service to be consumed or stored elsewhere. The message contains the data that triggered the message pipeline. The publisher of the message has an exception about how the consumer handles the message. A contract exists between the two sides. For example, the publisher sends a message with the raw data, and expects the consumer to create a file from that data and send a response when the work is done.
 
 ##### Azure Event Grid
 
+
+
 ##### Azure Event Hubs
+
+
 
 ##### Azure Service Bus
 
+
+
 ##### Comparison of services
 
+
+
 ##### Use the services together
+
+
 
 
 
@@ -140,6 +154,24 @@ Discrete events report state change and are actionable. To take the next step, t
 
 
 #### [Queues, topics, and subscriptions](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-queues-topics-subscriptions)
+
+Azure Service Bus supports a set of cloud-based, message-oriented middleware technologies including reliable message queuing and durable publish/subscribe messaging. These brokered messaging capabilities can be thought of as decoupled messaging features that support publish-subscribe, temporal decoupling, and load-balancing scenarios using the Service Bus messaging workload. Decoupled communication has many advantages. For example, clients and servers can connect as needed and do their operations in an asynchronous fashion.
+
+The messaging entities that form the core of the messaging capabilities in Service Bus are **queues, topics and subscriptions**, and rules/actions.
+
+##### Queues
+
+
+
+##### Topics and subscriptions
+
+
+
+##### Java message service (JMS) 2.0 entities
+
+
+
+##### Next steps
 
 
 
