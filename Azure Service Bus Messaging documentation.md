@@ -2,7 +2,7 @@
 
 ## Overview
 
-### [What is Service Bus Messaging?](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-messaging-overview)
+### [1-1 What is Service Bus Messaging?](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-messaging-overview)
 
 Microsoft Azure Service Bus is a fully managed enterprise message broker with message queues and publish-subscribe topics. Service Bus is used to decouple applications and services from each other, providing the following benefits:
 
@@ -97,9 +97,7 @@ To get started using Service Bus messaging, see the following articles:
 * To learn more about Standard and Premium tiers and their pricing, see Service Bus pricing.
 * To learn about performance and latency for the Premium tier, see Premium Messaging.
 
-### Concept
-
-#### [Compare Azure messaging services](https://docs.microsoft.com/en-us/azure/event-grid/compare-messaging-services?toc=/azure/service-bus-messaging/toc.json)
+### [1-2 Compare messaging services](https://docs.microsoft.com/en-us/azure/event-grid/compare-messaging-services?toc=/azure/service-bus-messaging/toc.json)
 
 Azure offers three services that assist with delivering events or messages throughout a solution. These services are:
 
@@ -183,21 +181,83 @@ In other cases, you link them together to form an event and data pipeline. You u
 
 ![](https://docs.microsoft.com/en-us/azure/event-grid/media/compare-messaging-services/overview.png)
 
-
-
-#### [Compare Azure queues and Services Bus queues](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted)
+### [1-3 Use Service Bus with Java Message Service (JMS) 2.0](https://docs.microsoft.com/en-us/azure/service-bus-messaging/how-to-use-java-message-service-20)
 
 
 
-#### [Queues, topics, and subscriptions](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-queues-topics-subscriptions)
+## Quickstarts
 
-Azure Service Bus supports a set of cloud-based, message-oriented middleware technologies including reliable message queuing and durable publish/subscribe messaging. These brokered messaging capabilities can be thought of as decoupled messaging features that support publish-subscribe, temporal decoupling, and load-balancing scenarios using the Service Bus messaging workload. Decoupled communication has many advantages. For example, clients and servers can connect as needed and do their operations in an asynchronous fashion.
+### Service Bus queues
+
+#### Create a Service Bus queue
+
+##### Azure portal
+
+##### Azure PowerShell
+
+##### Azure CLI
+
+##### ARM template
+
+#### Send and receive messages
+
+##### .NET (Azure.Messaging.ServiceBus)
+
+##### Java (azure-messaging-servicebus)
+
+##### Python (azure-servicebus)
+
+##### JavaScript (@azure/service-bus)
+
+### Services Bus topics and subscriptions
+
+#### Create topics and subscriptions
+
+##### Azure portal
+
+##### Azure CLI
+
+##### ARM template
+
+#### Publish and subscribe for messages
+
+##### .NET (Azure.Messaging.ServiceBus)
+
+##### Java (azure-messaging-servicebus)
+
+##### Python (azure-servicebus)
+
+##### JavaScript (@azure/service-bus)
+
+## Tutorials
+
+### Update inventory
+
+### Handle Service Bus events via Event Grid
+
+#### Azure Logic Apps
+
+#### Azure Functions
+
+### Build message-driven business applications with NServiceBus
+
+## Samples
+
+### Service Bus samples
+
+## Concepts
+
+### [5-1 Queues, topics, and subscriptions](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-queues-topics-subscriptions)
+
+Azure Service Bus supports a set of cloud-based, message-oriented middleware technologies including <u>reliable message queuing</u> and <u>durable publish/subscribe messaging</u>. These brokered messaging capabilities can be thought of as decoupled messaging features that support publish-subscribe, temporal decoupling, and load-balancing scenarios using the Service Bus messaging workload. Decoupled communication has many advantages. For example, clients and servers can connect as needed and do their operations in an asynchronous fashion.
 
 The messaging entities that form the core of the messaging capabilities in Service Bus are **queues, topics and subscriptions**, and rules/actions.
 
 ##### Queues
 
+Queues offer **First in, First Out** (FIFO) message delivery to one or more competing consumers. That is, receivers typically receive and process messages in the order in which they were added to the queue. And, only one message consumer receives and processes each message. A key benefit of using queues is to achieve **temporal decoupling of application components**. In other words, the producers (senders) and consumers (receivers) don't have to send and receive messages at the same time. That's because messages are stored durably in the queue. Furthermore, the producer doesn't have to wait for a reply from the consumer to continue to process and send messages.
 
+A related benefit is load-leveling, which enables producers and consumers to send and receive messages at different rates. In many applications, the system load varies over time. However, the processing time required for each unit of work is typically constant. Intermediating message producers and consumers with a queue means that the consuming application only has to be able to handle average load instead of peak load. The depth of the queue grows and contracts as the incoming load varies.
 
 ##### Topics and subscriptions
 
@@ -208,6 +268,32 @@ The messaging entities that form the core of the messaging capabilities in Servi
 
 
 ##### Next steps
+
+
+
+### [5-2 Premium messaging](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-premium-messaging)
+
+### [5-3 Compare Azure Queues and Service Bus queues](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted)
+
+### 5-4 Advanced features
+
+#### [5-4-1 Overview of advanced features](https://docs.microsoft.com/en-us/azure/service-bus-messaging/advanced-features-overview)
+
+#### 5-4-2 Message sessions
+
+#### 5-4-3 Duplicate message detection
+
+#### 5-4-4 Topic filters and actions
+
+
+
+
+
+### Federation
+
+### Security
+
+### Integration with other services
 
 
 
@@ -244,6 +330,12 @@ Azure Resource Manager tempalte
 Monitor and manage
 
 Use PowerShell to provision entities
+
+## How-to guides
+
+## Reference
+
+## Resources
 
 [^1]: adj.互补的，相辅相成的
 
