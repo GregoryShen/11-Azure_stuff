@@ -263,15 +263,15 @@ Using queues to intermediate between message producers and consumers providers a
 
 ###### Create queues
 
-You can create queues using the Azure portal, PowerShell, CLI, or Resource Manager templates. Then, send and receive messages using clients written in C#, Java, Python, and Javascript.
+You can create queues using the Azure portal, PowerShell, CLI, or Resource Manager templates. Then, send and receive messages using clients written in C#, Java, Python, and JavaScript.
 
 ###### Receive modes
 
 You can specify two different modes in which Service Bus receives messages.
 
-* **Receive and delete**. In this mode, when Service Bus receives the request from the consumer, it marks the message as being consumed and returns it to the consumer application. This mode is the simplest model. It works best for scenarios in which the application can tolerate not processing a message if a failure occurs. To understand this scenario, consider a scenario in which the consumer issues the receive request and then crashes before processing it. As Service Bus marks the message as beging consumed, the application begins consuming messages upon restart. It will miss the message that it consumed before the crash.
+* **Receive and delete**. In this mode, when Service Bus receives the request from the consumer, it marks the message as being consumed and returns it to the consumer application. This mode is the simplest model. It works best for scenarios in which the application can tolerate not processing a message if a failure occurs. To understand this scenario, consider a scenario in which the consumer issues the receive request and then crashes before processing it. As Service Bus marks the message as being consumed, the application begins consuming messages upon restart. It will miss the message that it consumed before the crash.
 
-* **Peek lock**. In this mode, the receive opreation becomes two-stage, which makes it possible to support applications that can’t tolerate missing messages.
+* **Peek lock**. In this mode, the receive operation becomes two-stage, which makes it possible to support applications that can’t tolerate missing messages.
 
   1. Finds the next message to be consumed, locks it to prevent other consumers from receiving it, and then, return the message to the application.
 
@@ -279,11 +279,11 @@ You can specify two different modes in which Service Bus receives messages.
 
      If the application is unable to process the message for some reason, it can request the Service Bus service to **abandon** the message. Service Bus **unlocks** the message and makes it available to be received again, either by the same consumer or by another competing consumer. Secondly, there’s a timeout associated with the lock. If the application fails to process the message before the lock timeout expires, Service Bus unlocks the message and makes it available to be received again.
 
-     If the application crashes after it processes the message, but before it requests the Service Bus service to complete the message, Service Bus redelivers the message to the application when it restarts. This process is often called **at-least once** processing. That is, each message is processed at least once. However, in certain situations the same message may be redelivered. If your scenario can’t tolerate duplicate processing, add additional logic in your application to detect duplicates. For more information, see <u>Duplicate detection</u>. This feature is known as exactly once processing.
+     If the application crashes after it processes the message, but before it requests the Service Bus service to complete the message, Service Bus redelivers the message to the application when it restarts. This process is often called **at-least once** processing. That is, each message is processed at least once. However, in certain situations the same message may be redelivered. If your scenario can’t tolerate duplicate processing, add additional logic in your application to detect duplicates. For more information, see <u>Duplicate detection</u>. This feature is known as **exactly once** processing.
 
 ##### Topics and subscriptions
 
-
+A queue allows processing of a message by a single consumer. In contrast to queues, topics and subscriptions provide a one-to-many form of communication in a publish and subscribe pattern. It's useful for scaling to large numbers of recipients. Each published message is made available to each subscription registered with the topic. Publisher sends a message to a topic and one or more subscribers receive a copy of the message, depending on filter rules set on these subscriptions. The subscriptions can use additional filters to restrict the messages that they want to receive. Publishers send messages to a topic in the same way that they send messages to a queue. But, consumers don't receive messages directly from the topic. Instead, consumers receive messages from subscriptions of the topic.
 
 ##### Java message service (JMS) 2.0 entities
 
