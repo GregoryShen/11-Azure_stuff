@@ -283,11 +283,25 @@ You can specify two different modes in which Service Bus receives messages.
 
 ##### Topics and subscriptions
 
-A queue allows processing of a message by a single consumer. In contrast to queues, topics and subscriptions provide a one-to-many form of communication in a publish and subscribe pattern. It's useful for scaling to large numbers of recipients. Each published message is made available to each subscription registered with the topic. Publisher sends a message to a topic and one or more subscribers receive a copy of the message, depending on filter rules set on these subscriptions. The subscriptions can use additional filters to restrict the messages that they want to receive. Publishers send messages to a topic in the same way that they send messages to a queue. But, consumers don't receive messages directly from the topic. Instead, consumers receive messages from subscriptions of the topic.
+A queue allows processing of a message by a single consumer. In contrast to queues, topics and subscriptions provide a one-to-many form of communication in a **publish and subscribe** pattern. It's useful for scaling to large numbers of recipients. Each published message is made available to each subscription registered with the topic. Publisher sends a message to a topic and one or more subscribers receive a copy of the message, depending on filter rules set on these subscriptions. The subscriptions can use additional filters to restrict the messages that they want to receive. Publishers send messages to a topic in the same way that they send messages to a queue. But, consumers don't receive messages directly from the topic. Instead, consumers receive messages from subscriptions of the topic. A <u>topic subscription</u> ==resembles a virtual queue that receives copies of the messages that are sent to the topic==. Consumers receive messages from a subscription identically to the way they receive messages from a queue.
+
+<u>The message-sending functionality of a queue maps directly to a topic and its message-receiving functionality maps to a subscription.</u> Among other things, this feature means that subscriptions support the same patterns described earlier in this section regarding queues: competing consumer, temporal decoupling, load leveling, and load balancing.
+
+###### Create topics and subscriptions
+
+Create a topic is similar to creating a queue, as describes in the previous section. You can create topics and subscriptions using the Azure portal, PowerShell, CLI, or Resource Manager templates. Then, send messages to a topic and receive messages from subscriptions using clients written in C#, Java, Python, and JavaScript.
+
+###### Rules and actions
+
+In many scenarios, messages that have specific characteristics must be processed in different ways. To enable this processing, you can configure subscriptions to find messages that have desired properties and then perform certain modifications to those properties. While Service Bus subscriptions see all messages sent to the topic, you can only copy a subset of those messages to the virtual subscription queue. This filtering is accomplished using subscription filters. Such modifications are called **filter actions**. When a subscription is created, you can supply a filter expression that operates on the properties the message. The properties can be both the system properties (for example, **Label**) and custom application properties(for example, **StoreName**). The SQL filter expression is optional in this case. Without a SQL filter expression, any filter action defined on a subscription will be done on all the messages for that subscription.
+
+For a full working example, see the TopicFilters sample on GitHub.
+
+For more information about filters, see Topic filters and actions.
 
 ##### Java message service (JMS) 2.0 entities
 
-
+The following entities are
 
 ##### Next steps
 
@@ -295,17 +309,27 @@ A queue allows processing of a message by a single consumer. In contrast to queu
 
 ### [5-2 Premium messaging](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-premium-messaging)
 
+
+
 ### [5-3 Compare Azure Queues and Service Bus queues](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted)
+
+
 
 ### 5-4 Advanced features
 
 #### [5-4-1 Overview of advanced features](https://docs.microsoft.com/en-us/azure/service-bus-messaging/advanced-features-overview)
 
-#### 5-4-2 Message sessions
 
-#### 5-4-3 Duplicate message detection
 
-#### 5-4-4 Topic filters and actions
+#### [5-4-2 Message sessions](https://docs.microsoft.com/en-us/azure/service-bus-messaging/message-sessions)
+
+
+
+#### [5-4-3 Duplicate message detection](https://docs.microsoft.com/en-us/azure/service-bus-messaging/duplicate-detection)
+
+
+
+#### [5-4-4 Topic filters and actions](https://docs.microsoft.com/en-us/azure/service-bus-messaging/topic-filters)
 
 
 
