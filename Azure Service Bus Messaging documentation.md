@@ -191,59 +191,59 @@ In other cases, you link them together to form an event and data pipeline. You u
 
 #### Create a Service Bus queue
 
-##### Azure portal
+##### 2-1 Azure portal
 
-##### Azure PowerShell
+##### 2-2 Azure PowerShell
 
-##### Azure CLI
+##### 2-3 Azure CLI
 
-##### ARM template
+##### 2-4 ARM template
 
 #### Send and receive messages
 
-##### .NET (Azure.Messaging.ServiceBus)
+##### 2-5 .NET (Azure.Messaging.ServiceBus)
 
-##### Java (azure-messaging-servicebus)
+##### 2-6 Java (azure-messaging-servicebus)
 
-##### Python (azure-servicebus)
+##### 2-7 Python (azure-servicebus)
 
-##### JavaScript (@azure/service-bus)
+##### 2-8 JavaScript (@azure/service-bus)
 
 ### Services Bus topics and subscriptions
 
 #### Create topics and subscriptions
 
-##### Azure portal
+##### 2-9 Azure portal
 
-##### Azure CLI
+##### 2-10 Azure CLI
 
-##### ARM template
+##### 2-11 ARM template
 
 #### Publish and subscribe for messages
 
-##### .NET (Azure.Messaging.ServiceBus)
+##### 2-12 .NET (Azure.Messaging.ServiceBus)
 
-##### Java (azure-messaging-servicebus)
+##### 2-13 Java (azure-messaging-servicebus)
 
-##### Python (azure-servicebus)
+##### 2-14 Python (azure-servicebus)
 
-##### JavaScript (@azure/service-bus)
+##### 2-15 JavaScript (@azure/service-bus)
 
 ## Tutorials
 
-### Update inventory
+### 3-1 Update inventory
 
 ### Handle Service Bus events via Event Grid
 
-#### Azure Logic Apps
+#### 3-2 Azure Logic Apps
 
-#### Azure Functions
+#### 3-3 Azure Functions
 
-### Build message-driven business applications with NServiceBus
+### 3-4 Build message-driven business applications with NServiceBus
 
 ## Samples
 
-### Service Bus samples
+### 4-1 Service Bus samples
 
 ## Concepts
 
@@ -301,11 +301,22 @@ For more information about filters, see Topic filters and actions.
 
 ##### Java message service (JMS) 2.0 entities
 
-The following entities are
+The following entities are accessible through the Java message service (JMS) 2.0 API.
+
+* Temporary queues
+* Temporary topics
+* Shared durable subscriptions
+* Unshared durable subscriptions
+* Shared non-durable subscriptions
+* Unshared non-durable subscriptions
+
+Learn more about the JMS 2.0 entities and about how to use them.
 
 ##### Next steps
 
+Try the samples in the language of your choice to explore Azure Service Bus features.
 
+* [Azure Service Bus client library samples for Python](https://docs.microsoft.com/en-us/samples/azure/azure-sdk-for-python/servicebus-samples/)
 
 ### [5-2 Premium messaging](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-premium-messaging)
 
@@ -379,9 +390,35 @@ Use PowerShell to provision entities
 
 ## How-to guides
 
+6-1 Develop
+
+6-2 Migrate
+
+6-3 Monitor
+
+6-4 Integrate
+
+6-5 Manage
+
+6-6 Secure
+
+6-7 Troubleshoot
+
 ## Reference
 
+7-1 Monitor data reference
+
+
+
 ## Resources
+
+### 8-1 FAQ
+
+### 8-2 Build your skills with Microsoft Learn
+
+### 8-3 Azure Roadmap
+
+
 
 [^1]: adj.互补的，相辅相成的
 
