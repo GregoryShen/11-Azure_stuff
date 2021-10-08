@@ -193,9 +193,29 @@ In other cases, you link them together to form an event and data pipeline. You u
 
 ##### 2-1 Azure portal
 
+**Use Azure portal to create a Service Bus namespace and a queue**
+
+###### What are Service Bus queues?
+
+###### Prerequisites
+
+###### Create a namespace in the Azure portal
+
+###### Get the connection string
+
+###### Create a queue in the Azure portal
+
+###### Next steps
+
+
+
 ##### 2-2 Azure PowerShell
 
+
+
 ##### 2-3 Azure CLI
+
+
 
 ##### 2-4 ARM template
 
@@ -206,6 +226,10 @@ In other cases, you link them together to form an event and data pipeline. You u
 ##### 2-6 Java (azure-messaging-servicebus)
 
 ##### 2-7 Python (azure-servicebus)
+
+**Send messages to and receive messages from Azure Service Bus queues(Python)**
+
+
 
 ##### 2-8 JavaScript (@azure/service-bus)
 
@@ -231,7 +255,70 @@ In other cases, you link them together to form an event and data pipeline. You u
 
 ## Tutorials
 
-### 3-1 Update inventory
+### [3-1 Update inventory](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-tutorial-topics-subscriptions-portal)
+
+**Tutorial: Update inventory using Azure portal and topics/subscriptions**
+
+Microsoft Azure Service Bus is a multi-tenant[^3-1-1]cloud messaging service that sends information between applications and services. Asynchronous operations give you flexible, brokered messaging, along with structured first-in, first-out (FIFO) messaging, and publish/subscribe capabilities. This tutorial shows how to use Service Bus topics and subscriptions in a retail inventory scenario, with publish/subscribe channels using the Azure portal and .NET.
+
+In this tutorial, you learn how to:
+
+:heavy_check_mark: Create a Service Bus topic and one or more subscriptions to that topic using the Azure portal
+
+:heavy_check_mark: Add topic filters using .NET code
+
+:heavy_check_mark: Create two messages with different content
+
+:heavy_check_mark: Send the messages and verify they arrived in the expected subscriptions
+
+:heavy_check_mark: Receive messages from the subscriptions
+
+An example of this scenario is an inventory assortment[^3-1-2]update for multiple retail stores. In this scenario, each store, or set of stores, gets messages intended for them to update their assortments. This tutorial shows how to implement this scenario using subscriptions and filters. First, you create a topic with 3 subscriptions, add some rules and filters, and then send and receive messages from the topic and subscriptions.
+
+![](https://docs.microsoft.com/en-us/azure/service-bus-messaging/media/service-bus-tutorial-topics-subscriptions-portal/about-service-bus-topic.png)
+
+If you don't have an Azure subscription, you can create a free account before you begin.
+
+#### Prerequisites
+
+To complete this tutorial, make sure you have installed:
+
+* Visual Studio 2017 Update 3 or later
+* NET Core SDK, version 2.0 or later
+
+#### Service Bus topics and subscriptions
+
+Each subscription to a topic can receive a copy of each message. Topics are fully protocol and semantically compatible with Service Bus queues. Service Bus topics support a wide array of selection rules with filter conditions, with optional actions that set or modify message properties. Each time a rule matches, it produces a message. To learn more about rules, filters, and actions, follow this [link](https://docs.microsoft.com/en-us/azure/service-bus-messaging/topic-filters).
+
+#### Create a namespace in the Azure portal
+
+To begin using Service Bus messaging entities in Azure, you must first create a namespace with a name that is unique across Azure. A namespace provides a scoping container for addressing Service Bus resources within your application.
+
+To create a namespace:
+
+1. Sign in to the [Azure portal](https://portal.azure.com/)
+
+2. In the left navigation pane of the portal, select **+ Create a resource**, select **Integration**, and then select **Service Bus**.
+
+   ![](https://docs.microsoft.com/en-us/azure/service-bus-messaging/includes/media/service-bus-create-namespace-portal/create-resource-service-bus-menu.png)
+
+3. In the Basics tag of the Create namespace page, follow these steps:
+
+#### Get the connection string
+
+#### Create a topic using the Azure portal
+
+#### Create subscriptions to the topic
+
+#### Create filter rules on subscriptions
+
+#### Send and receive messages
+
+#### Clean up resources
+
+#### Understand the sample code
+
+#### Next steps
 
 ### Handle Service Bus events via Event Grid
 
@@ -344,6 +431,86 @@ Try the samples in the language of your choice to explore Azure Service Bus feat
 
 
 
+#### 5-4-5 Message browsing
+
+#### 5-4-6 Message transfers, locks, and settlement
+
+#### [5-4-7 Dead-letter queues](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-dead-letter-queues)
+
+**Overview of Service Bus dead-letter queues**
+
+Azure Service Bus queues and topic subscriptions provide a secondary subqueue, called a *dead-letter queue*(DLQ). The dead-letter queue doesn't need to be explicitly created and can't be deleted or managed independent of the main entity.
+
+This article describes dead-letter queues in Service Bus. Much of the discussion is illustrated by the [Dead-Letter queues sample](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/DeadletterQueue) on GitHub.
+
+##### The dead-letter queue
+
+The purpose of the dead-letter queue is to hold messages that can't be delivered to any receiver, or messages that couldn't be processed. Messages can then be removed from the DLQ and inspected. An application might, with help of an operator, correct issues and resubmit the message, log the fact that there was an error, and take corrective action.
+
+From an API and protocol perspective, the DLQ is mostly similar to any other queue, except that messages can only be submitted via the dead-letter operation of the parent entity. In addition, time-to-live isn't observed, and you can't dead-letter a message from a DLQ. The dead-letter queue fully supports peek-lock delivery and transactional operations.
+
+There's no automatic cleanup of the DLQ. Messages remain in the DLQ until you explicitly retrieve them from the DLQ and complete the dead-letter message.
+
+##### DLQ message count
+
+It's not possible to obtain count of messages in the dead-letter queue at the topic level. That's because messages don't sit at the topic level unless Service Bus throws an internal error. Instead, when a sender sends a message to a topic, the message is forwarded to subscriptions for the topic within milliseconds and thus no longer resides at the topic level. So, you can see messages in the DLQ associated with the subscription for the topic. In the following example, Service Bus Explorer shows that there are 62 messages currently in the DLQ for the subscription "test1".
+
+![](https://docs.microsoft.com/en-us/azure/service-bus-messaging/media/service-bus-dead-letter-queues/dead-letter-queue-message-count.png)
+
+You can also get the count of DLQ messages by using Azure CLI command:
+
+##### Moving messages to the DLQ
+
+There are several activities in Service Bus that cause messages to get pushed to the DLQ from within the messaging engine itself. An application can also explicitly move messages to the DLQ. The following two properties (dead-letter reason and lead-letter description) are added to dead-lettered messages. Applications can define their own codes for the dead-letter reason property, but the system sets the following values.
+
+| Dead-letter reason                        | Dead-letter error description                                |
+| ----------------------------------------- | ------------------------------------------------------------ |
+| HeaderSizeExceeded                        | The size quota for this stream has been exceeded.            |
+| TTLExpiredException                       | The message expired and was dead lettered. See the <u>Time to live</u> section for details. |
+| Session ID is null.                       | Session enabled entity doesn't allow a message whose session identifier is null |
+| MaxTransferHopCountExceeded               | The maximum number of allowed hops when forwarding between queues. Value is set to 4. |
+| MaxDeliveryCountExceeededExceptionMessage | Message couldn't be consumed after maximum delivery attempts. See the <u>Maximum delivery count</u> section for details. |
+
+##### Maximum delivery count
+
+There is a limit on number of attempts to deliver messages for Service Bus queues and subscriptions. The default value is 10. Whenever a message has been delivered under a peek-lock, but has been either explicitly abandoned or the lock has expired, the delivery count on the message is incremented. When the delivery count exceeds the limit, the message is moved to the DLQ. The dead-letter reason for the message in DLQ is set to: MaxDeliveryCountExceeded. This behavior can't be disabled, but you can set the max delivery count to a large number.
+
+##### Time to live
+
+When you enable dead-lettering on queues or subscriptions, all expiring messages are moved to the DLQ. The dead-letter reason code is set to: TTLExpiredException.
+
+The deferred messages will also not be purged[^5-4-7-1]and moved to the dead-letter queue after they expire. This behavior is by design.
+
+##### Errors while processing subscription rules
+
+If you enable dead-lettering on filter evaluation exceptions, any errors that occur while a subscription's SQL filter rule executes are captured in the DLQ along with the offending message. Don't use this option in a production environment in which no all message types have subscribers.
+
+##### Application-level dead-lettering
+
+
+
+##### Dead-lettering in ForwardTo or SendVia scenarios
+
+
+
+##### Path to the dead-letter queue
+
+
+
+##### Next steps
+
+
+
+#### 5-4-8 Message deferral
+
+#### 5-4-9 Prefetch messages
+
+#### 5-4-10 Chain entities with auto-forwarding
+
+#### 5-4-11 Transaction processing
+
+
+
 
 
 ### Federation
@@ -354,39 +521,7 @@ Try the samples in the language of your choice to explore Azure Service Bus feat
 
 
 
-### Architecture
 
-#### Reference architecture for queues and events
-
-Send and receive messages - queues
-
-Secure
-
-Authentication and Authorization
-
-Authenticate with shared Access Signature
-
-Create a Service Bus queue
-
-Azure portal
-
-Azure CLI
-
-Azure PowerShell
-
-Azure Resource Manager template
-
-Publish and subscribe for messages
-
-Create Service Bus topics and subscriptions
-
-Azure portal
-
-Azure Resource Manager tempalte
-
-Monitor and manage
-
-Use PowerShell to provision entities
 
 ## How-to guides
 
@@ -420,6 +555,42 @@ Use PowerShell to provision entities
 
 
 
+Architecture
+
+Reference architecture for queues and events
+
+Send and receive messages - queues
+
+Secure
+
+Authentication and Authorization
+
+Authenticate with shared Access Signature
+
+Create a Service Bus queue
+
+Azure portal
+
+Azure CLI
+
+Azure PowerShell
+
+Azure Resource Manager template
+
+Publish and subscribe for messages
+
+Create Service Bus topics and subscriptions
+
+Azure portal
+
+Azure Resource Manager tempalte
+
+Monitor and manage
+
+Use PowerShell to provision entities
+
+
+
 [^1]: adj.互补的，相辅相成的
 
 [^2]: 底板
@@ -428,6 +599,11 @@ Use PowerShell to provision entities
 [^5]: n.保留; 记忆力，保持力; 滞留，扣留; 闭尿
 [^6]: [təˈlɛmɪtri] n.遥感勘测，自动测量记录传导; 测远术; 遥测
 [^7]: adj.瞬间的; 即刻的; 猝发的
+
+[^3-1-1]: n. 房客; 佃户; <律>占用者; 占有者；vt.租借，租用
+[^3-1-2]: n.各式各样；什锦
+
+[^5-4-7-1]: vt.清除，（使）净化; （使）通便; 肃清；n.净化; <医>泻药; 整肃
 
 
 
