@@ -487,19 +487,28 @@ If you enable dead-lettering on filter evaluation exceptions, any errors that oc
 
 ##### Application-level dead-lettering
 
-
+In addition to the system-provided dead-lettering features, applications can use the DLQ to explicitly reject unacceptable messages. They can include messages that can't be properly processed because of any sort of system issue, messages that hold malformed payloads, or messages that fail authentication when some message-level security scheme is used.
 
 ##### Dead-lettering in ForwardTo or SendVia scenarios
 
+Messages will be sent to the transfer dead-letter queue under the following conditions:
 
+* A message passes through more than four queues or topics that are chained together.
+* The destination queue or topic is disabled or deleted.
+* The destination queue or topic exceeds the maximum entity size.
 
 ##### Path to the dead-letter queue
 
+You can access the dead-letter queue by using the following syntax:
 
+```xml
+<queue path>/$deadletterqueue
+<topic path>/Subscriptions/<subscription path>/$deadletterqueue
+```
 
 ##### Next steps
 
-
+See [Enable dead lettering for a queue or subscription](https://docs.microsoft.com/en-us/azure/service-bus-messaging/enable-dead-letter) to learn about different ways of configuring the **dead lettering on message expiration** setting.
 
 #### 5-4-8 Message deferral
 
