@@ -302,9 +302,35 @@ To create a namespace:
 
    ![](https://docs.microsoft.com/en-us/azure/service-bus-messaging/includes/media/service-bus-create-namespace-portal/create-resource-service-bus-menu.png)
 
-3. In the Basics tag of the Create namespace page, follow these steps:
+3. In the **Basics** tag of the **Create namespace** page, follow these steps:
+
+   1. For Subscription, choose an Azure subscription in which to create the namespace.
+
+   2. For Resource group, choose an existing resource group in which the namespace will live, or create a new one.
+
+   3. Enter a name for the namespace. The system immediately checks to see if the name is available. For a list of rules for naming namespaces, see [Create Namespace REST API](https://docs.microsoft.com/en-us/rest/api/servicebus/create-namespace).
+
+   4. For Location, choose the region in which your namespace should be hosted.1.
+
+   5. For Pricing tier, select the pricing tier (Basic, Standard, or Premium) for the namespace. If you want to use topics and subscriptions, choose either Standard or Premium. Topics/subscriptions are not supported in the Basic pricing tier. If you selected the Premium pricing tier, specify the number of messaging units. The premium tier provides resource isolation at the CPU and memory level so that each workload runs in isolation. This resource container is called a messaging unit. A premium namespace has at least one messaging unit. You can select 1, 2, or 4 messaging units for each Service Bus Premium namespace. For more information, see [Service Bus Premium Messaging](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-premium-messaging).
+
+   6. Select Review + create. The system now creates your namespace and enables it. You might have to wait several minutes as the system provisions resources for your account.
+
+      ![](https://docs.microsoft.com/en-us/azure/service-bus-messaging/includes/media/service-bus-create-namespace-portal/create-namespace.png)
+
+   7. On the Review + create page, review settings, and select Create.
+
+4. Select Go to resource on the deployment page.
+
+   ![](https://docs.microsoft.com/en-us/azure/service-bus-messaging/includes/media/service-bus-create-namespace-portal/deployment-alert.png)
+
+5. You see the home page for your service bus namespace.
+
+   ![](https://docs.microsoft.com/en-us/azure/service-bus-messaging/includes/media/service-bus-create-namespace-portal/service-bus-namespace-home-page.png)
 
 #### Get the connection string
+
+
 
 #### Create a topic using the Azure portal
 
