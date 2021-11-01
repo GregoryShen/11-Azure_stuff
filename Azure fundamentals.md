@@ -39,7 +39,14 @@ Instead of maintaining CPUs and storage in your datacenter, you rent them for th
 
 #### Why should I move to the cloud?
 
+The cloud helps you move faster and innovate in ways that were once nearly impossible.
 
+In our ever-changing digital world, two trends emerge:
+
+* Teams deliver new features to their users at record speeds.
+* Users expect an increasingly rich and immersive experience with their devices and with software.
+
+Software releases were once scheduled in terms of months or even years. Today, teams release features in smaller batches that are often scheduled in days or weeks. 
 
 ### What is Azure?
 

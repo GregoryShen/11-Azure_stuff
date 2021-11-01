@@ -330,11 +330,33 @@ To create a namespace:
 
 #### Get the connection string
 
+Creating a new namespace automatically generates an initial Shared Access Signature(SAS) rule with an associated pair of primary and secondary keys that each grant full control over all aspects of the namespace. See [Service Bus authentication and authorization](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-authentication-and-authorization) for information about how to create rules with more constrained rights for regular senders and receivers. To copy the primary and secondary keys for your namespace, follow these steps:
 
+1. On the Service Bus Namespace page, select Shared access policies on the left menu.
+
+2. On the Shared access policies page, select RootManageSharedAccessKey.
+
+   ![](https://docs.microsoft.com/en-us/azure/service-bus-messaging/includes/media/service-bus-create-namespace-portal/connection-info.png)
+
+3. In the <u>Policy: RootManageSharedAccessKey</u> window, click the copy button next to <u>Primary Connection String</u>, to copy the connection string to your clipboard for later use. Paste this value into Notepad or some other temporary location.
+
+   ![](https://docs.microsoft.com/en-us/azure/service-bus-messaging/includes/media/service-bus-create-namespace-portal/connection-string.png)
 
 #### Create a topic using the Azure portal
 
+1. On the <u>Service Bus Namespace</u> page, select <u>Topics</u> on the left menu.
+
+2. Select <u>+ Topic</u> on the toolbar.
+
+3. Enter a <u>name</u> for the topic. Leave the other options with their default values.
+
+4. Select <u>Create</u>.
+
+   ![](https://docs.microsoft.com/en-us/azure/service-bus-messaging/includes/media/service-bus-create-topics-subscriptions-portal/create-topic.png)
+
 #### Create subscriptions to the topic
+
+
 
 #### Create filter rules on subscriptions
 
@@ -443,7 +465,31 @@ Try the samples in the language of your choice to explore Azure Service Bus feat
 
 #### [5-4-1 Overview of advanced features](https://docs.microsoft.com/en-us/azure/service-bus-messaging/advanced-features-overview)
 
+Service Bus includes advanced features that enable you to solve more complex messaging problems. This article describes several of these features.
 
+Message sessions
+
+Autoforwarding
+
+Dead-letter queue
+
+Scheduled delivery
+
+Message deferral
+
+Batching
+
+Transactions
+
+Autodelete on idle
+
+Duplicate detection
+
+Geo-disaster recovery
+
+Security
+
+Next steps
 
 #### [5-4-2 Message sessions](https://docs.microsoft.com/en-us/azure/service-bus-messaging/message-sessions)
 
