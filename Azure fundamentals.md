@@ -48,15 +48,27 @@ In our ever-changing digital world, two trends emerge:
 
 Software releases were once scheduled in terms of months or even years. Today, teams release features in smaller batches that are often scheduled in days or weeks. 
 
-### What is Azure?
+### [What is Azure?](https://docs.microsoft.com/en-us/learn/modules/intro-to-azure-fundamentals/what-is-microsoft-azure?ns-enrollment-type=LearningPath&ns-enrollment-id=learn.az-900-describe-cloud-concepts)
+
+Azure is a continually expanding set of cloud services that help your organization meet your current and future business challenges. Azure gives you the freedom to build, manage, and deploy applications on a messive global network using your favorite tools and frameworks.
+
+
 
 ### Tour of Azure services
 
+
+
 ### Get started with Azure accounts
+
+
 
 ### Case study introduction
 
+
+
 ### Knowledge check
+
+
 
 ### Summary
 
