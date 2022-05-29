@@ -596,11 +596,15 @@ See [Enable dead lettering for a queue or subscription](https://docs.microsoft.c
 
 ### Federation
 
+这些都不需要看
+
 ### Security
+
+这些都不需要看
 
 ### Integration with other services
 
-
+这些都不需要看
 
 
 
@@ -628,11 +632,7 @@ See [Enable dead lettering for a queue or subscription](https://docs.microsoft.c
 
 ## Resources
 
-### 8-1 FAQ
-
-### 8-2 Build your skills with Microsoft Learn
-
-### 8-3 Azure Roadmap
+这些都不需要看
 
 
 
