@@ -1,6 +1,6 @@
 # [Azure Pipelines](https://docs.microsoft.com/en-us/azure/devops/pipelines/?view=azure-devops)
 
-# [What is Azure Pipelines?](https://docs.microsoft.com/en-us/azure/devops/pipelines/get-started/what-is-azure-pipelines?view=azure-devops)
+# [1 What is Azure Pipelines?](https://docs.microsoft.com/en-us/azure/devops/pipelines/get-started/what-is-azure-pipelines?view=azure-devops)
 
 Azure Pipelines automatically builds and tests code projects to make them available to others. It works with just about any language or project type. Azure Pipelines combines continuous integration (CI) and continuous delivery (CD) to test and build your code and ship it to any target.
 
@@ -36,7 +36,7 @@ Why should I use Azure Pipelines?
 
 Next steps
 
-# Use Azure Pipelines
+# 2 Use Azure Pipelines
 
 Automate tests, builds, and delivery
 
@@ -50,25 +50,61 @@ Next steps
 
 
 
-# Get started
+# 3 Get started
 
-## Sign up for Azure Pipelines
-
-## Create your first pipeline
+## [3-1 Sign up for Azure Pipelines](https://docs.microsoft.com/en-us/azure/devops/pipelines/get-started/pipelines-sign-up?view=azure-devops)
 
 
 
-## Customize your pipeline
+## [3-2 Create your first pipeline](https://docs.microsoft.com/en-us/azure/devops/pipelines/create-first-pipeline?view=azure-devops&tabs=java%2Ctfs-2018-2%2Cbrowser)
 
 
 
-## Multi-stage pipelines user experience
+## [3-3 Customize your pipeline](https://docs.microsoft.com/en-us/azure/devops/pipelines/customize-pipeline?view=azure-devops)
+
+### Prerequisite
+
+### Understand the `azure-pipelines.yml` file
+
+### Change the platform to build on
+
+### Add steps
+
+### Build across multiple platforms
+
+### Build using multiple versions
+
+### Customize CI triggers
+
+### Pipeline settings
+
+### Create work item on failure
+
+### Next steps
 
 
 
-# Pipeline basics
+## [3-4 Multi-stage pipelines user experience](https://docs.microsoft.com/en-us/azure/devops/pipelines/get-started/multi-stage-pipelines-experience?view=azure-devops)
 
-## [Key concepts](https://docs.microsoft.com/en-us/azure/devops/pipelines/get-started/key-pipelines-concepts?view=azure-devops)
+
+
+Navigating pipelines
+
+Pipelines landing page
+
+View pipeline details
+
+View pipeline run details
+
+Manage security
+
+Task insights for failed pipeline runs
+
+Next steps
+
+# 4 Pipeline basics
+
+## [4-1 Key concepts](https://docs.microsoft.com/en-us/azure/devops/pipelines/get-started/key-pipelines-concepts?view=azure-devops)
 
 **Azure DevOps Services**
 
@@ -171,61 +207,198 @@ A trigger is something that's set up to tell the pipeline when to run. You can c
 
 The Library includes **secure files** and **variable groups**. Secure files are a way to store files and share them across pipelines. You may need to save a file at the DevOps level and then use it during build or deployment. In that case, you can save the file within Library and use it when you need it. Variable groups store values and secrets that you might want to be passed into a YAML pipeline or make available across multiple pipelines.
 
-## [YAML pipeline editor](https://docs.microsoft.com/en-us/azure/devops/pipelines/get-started/yaml-pipeline-editor?view=azure-devops)
+## [4-2 YAML pipeline editor](https://docs.microsoft.com/en-us/azure/devops/pipelines/get-started/yaml-pipeline-editor?view=azure-devops)
 
-Edit a YAML pipeline
+Azure Pipelines provides a YAML pipeline editor that you can use to author and edit your pipelines. The YAML editor is based on the [Monaco Editor](https://github.com/microsoft/monaco-editor). The editor provides tools like Intellisense[^4-2-1] support and a task assistant to provide guidance while you edit a pipeline.
 
-Use task assistant
+### Edit a YAML pipeline
 
-Validate
+To access the YAML pipeline editor, do the following steps.
 
-Download full YAML
+1. Sign in to your organization (`http://dev.azure.com/{yourorganization}`).
 
-Manage pipeline variables
+2. Select your project, choose **Pipelines**, and then select the pipeline you want to edit. You can browse pipelines by **Recent**, **All**, and **Runs**. For more information, see [Pipelines landing page](https://docs.microsoft.com/en-us/azure/devops/pipelines/get-started/multi-stage-pipelines-experience?view=azure-devops#pipelines-landing-page).
 
-View and edit templates
+   ![](https://docs.microsoft.com/en-us/azure/devops/pipelines/get-started/media/yaml-pipeline-editor/yaml-pipeline-landing-page.png?view=azure-devops)
 
-Next steps
+3. Choose **Edit**.
+
+   ![](https://docs.microsoft.com/en-us/azure/devops/pipelines/get-started/media/yaml-pipeline-editor/yaml-pipeline-edit.png?view=azure-devops)
+
+4. Make edits to your pipeline using [Intellisense](https://docs.microsoft.com/en-us/azure/devops/pipelines/get-started/yaml-pipeline-editor?view=azure-devops#use-keyboard-shortcuts) and the [task assistant](https://docs.microsoft.com/en-us/azure/devops/pipelines/get-started/yaml-pipeline-editor?view=azure-devops#use-task-assistant) for guidance.
+
+   ![](https://docs.microsoft.com/en-us/azure/devops/pipelines/get-started/media/yaml-pipeline-editor/yaml-pipeline-editor.png?view=azure-devops)
+
+5. Choose **Save**. You can commit directly to your branch, or create a new branch and optionally start a pull request.
+
+   ![](https://docs.microsoft.com/en-us/azure/devops/pipelines/get-started/media/yaml-pipeline-editor/yaml-pipeline-save.png?view=azure-devops)
+
+#### Use keyboard shortcuts
+
+The YAML pipeline editor provides several keyboard shortcuts, which we show in the following examples.
+
+* Choose **Ctrl+Space** for Intellisense support while you're editing the YAML pipeline.
+
+  ![](https://docs.microsoft.com/en-us/azure/devops/pipelines/get-started/media/yaml-pipeline-editor/yaml-pipeline-intellisense.png?view=azure-devops)
+
+* Choose **F1** (**Fn**+**F1** on Mac) to display the command palette[^4-2-2] and view the available keyboard shortcuts.
+
+  ![](https://docs.microsoft.com/en-us/azure/devops/pipelines/get-started/media/yaml-pipeline-editor/yaml-pipeline-editor-command-palette.png?view=azure-devops)
+
+### Use task assistant
+
+The task assistant provides a method for adding tasks to your YAML pipeline.
+
+* To display the task assistant, edit your YAML pipeline and choose **Show assistant**.
+
+  ![](https://docs.microsoft.com/en-us/azure/devops/pipelines/get-started/media/yaml-pipeline-editor/yaml-pipeline-task-assistant-show.png?view=azure-devops)
+
+* To hide the task assistant, choose **Hide assistant**.
+
+  ![](https://docs.microsoft.com/en-us/azure/devops/pipelines/get-started/media/yaml-pipeline-editor/yaml-pipeline-task-assistant-hide.png?view=azure-devops)
+
+* To use the task assistant, browse or search for tasks in the **Tasks** pane.
+
+  ![](https://docs.microsoft.com/en-us/azure/devops/pipelines/get-started/media/yaml-pipeline-editor/yaml-pipeline-task-assistant-search.png?view=azure-devops)
+
+* Select the desired task and configure its inputs.
+
+  ![](https://docs.microsoft.com/en-us/azure/devops/pipelines/get-started/media/yaml-pipeline-editor/yaml-pipeline-task-assistant-add.png?view=azure-devops)
+
+* Choose **Add** to insert the task YAML into your pipeline.
+
+  ![](https://docs.microsoft.com/en-us/azure/devops/pipelines/get-started/media/yaml-pipeline-editor/yaml-pipeline-task-assistant-task-added.png?view=azure-devops)
+
+* You can edit the YAML to make more configuration changes to the task, or you can choose **Settings** above the task in the YAML pipeline editor to configure the inserted task in the task assistant.
+
+### Validate
+
+Validate your changes to catch syntax errors in your pipeline that prevent it from starting. Choose **More actions** > **Validate**.
+
+![](https://docs.microsoft.com/en-us/azure/devops/pipelines/get-started/media/yaml-pipeline-editor/yaml-pipeline-validate.png?view=azure-devops)
+
+### Download full YAML
+
+You can preview the fully parsed YAML document without committing or running the pipeline. Choose **More actions** > **Download full YAML**.
+
+![](https://docs.microsoft.com/en-us/azure/devops/pipelines/get-started/media/yaml-pipeline-editor/yaml-pipeline-validate.png?view=azure-devops)
+
+**Download full YAML** [Runs](https://docs.microsoft.com/en-us/rest/api/azure/devops/pipelines/runs/run-pipeline?view=azure-devops-rest-6.1) the Azure DevOps REST API for Azure Pipelines and initiates a download of the rendered YAML from the editor.
+
+### Manage pipeline variables
+
+You can manage pipeline variables both from within your YAML pipeline and from the pipeline settings UI.
+
+#### YAML pipeline
+
+To manage pipeline variables, do the following steps.
+
+1. Edit your YAML pipeline and choose Variables to manage pipeline variables.
+
+   ![](https://docs.microsoft.com/en-us/azure/devops/pipelines/get-started/media/yaml-pipeline-editor/yaml-pipeline-variables-button.png?view=azure-devops)
+
+2. Choose from the following functions:
+
+   * **New variable**: to add your first variable
+   * **Add :heavy_plus_sign:**: to add subsequent variables.
+   * *Variable name* to edit a variable.
+   * Delete : to delete a variable.
+
+   ![](https://docs.microsoft.com/en-us/azure/devops/pipelines/get-started/media/yaml-pipeline-editor/yaml-pipeline-editor-manage-variables.png?view=azure-devops)
+
+#### Pipeline settings UI
+
+To manage pipelines variables in the UI, do the following steps.
+
+1. Edit the pipeline and choose **More actions** > **Triggers**.
+
+   ![](https://docs.microsoft.com/en-us/azure/devops/pipelines/get-started/media/yaml-pipeline-editor/yaml-pipeline-settings-ui-menu.png?view=azure-devops)
+
+2. Choose **Variables**.
+
+   ![](https://docs.microsoft.com/en-us/azure/devops/pipelines/get-started/media/yaml-pipeline-editor/yaml-pipeline-settings-ui-variables.png?view=azure-devops)
+
+For more information on working with pipeline variables, see [Define variables](https://docs.microsoft.com/en-us/azure/devops/pipelines/process/variables?view=azure-devops).
+
+### View and edit templates
+
+Templates are a commonly used feature in YAML pipelines. They're easy way to share pipeline snippets and are a powerful mechanism for verifying and enforcing security and governance in your pipeline. Previously, the editor didn't support templates, so authors of YAML pipelines couldn't get intellisense assistance. Now Azure Pipelines supports a YAML editor, for which we're previewing support. To enable this preview, go to preview features in your Azure DevOps organization, and enable YAML templates editor.
+
+> **:red_circle:Important**
+>
+> This feature is in preview. There are known limitations. If the template has required parameters that aren't provided as inputs in the main YAML file, then the validation fails and prompts you to provide those inputs. In addition, you can't create a new template from the editor. You can only use or edit existing templates.
+
+As you edit your main Azure Pipelines YAML file, you can either *include* or *extend* a template. As you enter the name of your template, you may be prompted to validate your template. Once validated, the YAML editor understands the schema of the template, including the input parameters.
+
+![](https://docs.microsoft.com/en-us/azure/devops/pipelines/get-started/media/yaml-pipeline-editor/yaml-pipeline-editor-templates.png?view=azure-devops)
+
+Post validation, you can go into the template by choosing **View template**, which opens the template in a new browser tab. You can make changes to the template using all the features of the YAML editor.
+
+### Next steps
+
+[Customize your pipeline](https://docs.microsoft.com/en-us/azure/devops/pipelines/customize-pipeline?view=azure-devops)
+
+## 4-3 Repositories
 
 
 
-Repositories
+## 4-4 Build history
 
-Build history
+## 4-5 Triggers
 
-## Triggers
+### [4-5-1 Type of triggers](https://docs.microsoft.com/en-us/azure/devops/pipelines/build/triggers?view=azure-devops)
 
-### Type of triggers
 
-### Scheduled triggers
 
-### Pipeline completion triggers
 
-### Build completion triggers (classic)
 
-### Release triggers (classic)
+### [4-5-2 Scheduled triggers](https://docs.microsoft.com/en-us/azure/devops/pipelines/process/scheduled-triggers?view=azure-devops&tabs=yaml)
 
-## Tasks & templates
 
-## Jobs & stages
 
-## Library, variables & secure files
+### [4-5-3 Pipeline completion triggers](https://docs.microsoft.com/en-us/azure/devops/pipelines/process/pipeline-triggers?view=azure-devops)
 
-## Approvals, checks, & gates
 
-## Pipeline runs
 
-## Pipeline reports
+### [4-5-4 Build completion triggers (classic)](https://docs.microsoft.com/en-us/azure/devops/pipelines/process/pipeline-triggers-classic?view=azure-devops)
 
-## Manage pipelines with Azure CLI
 
-Clone or import a pipeline
 
-Configure pipelines to support work tracking
+### [4-5-5 Release triggers (classic)](https://docs.microsoft.com/en-us/azure/devops/pipelines/release/triggers?view=azure-devops)
 
-Pipeline default branch
 
-## DevOps Starter
+
+## 4-6 Tasks & templates
+
+
+
+## 4-7 Jobs & stages
+
+
+
+## 4-8 Library, variables & secure files
+
+
+
+## 4-9 Approvals, checks, & gates
+
+
+
+## 4-10 Pipeline runs
+
+
+
+## 4-11 Pipeline reports
+
+## 4-12 Manage pipelines with Azure CLI
+
+## 4-13 Clone or import a pipeline
+
+## 4-14 Configure pipelines to support work tracking
+
+## 4-15 Pipeline default branch
+
+## 4-16 DevOps Starter
 
 # Ecosystems & integration
 
@@ -250,3 +423,6 @@ Manage agents & agent pools
 Configure security & settings
 
 Integrate with 
+
+[^4-2-1]: n.智能感知
+[^4-2-2]: [ˈpælɪt] n.调色板，颜料 a thin curved board that an artist uses to mix paints, holding it by putting his or her thumb through a hole at the edge
