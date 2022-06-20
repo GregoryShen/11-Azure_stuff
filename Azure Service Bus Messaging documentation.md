@@ -1,6 +1,6 @@
 # [Azure Services Bus Messaging documentation](https://docs.microsoft.com/en-us/azure/service-bus-messaging/)
 
-## Overview
+## 1 Overview
 
 ### [1-1 What is Service Bus Messaging?](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-messaging-overview)
 
@@ -185,7 +185,7 @@ In other cases, you link them together to form an event and data pipeline. You u
 
 
 
-## Quickstarts
+## 2 Quickstarts
 
 ### Service Bus queues
 
@@ -253,7 +253,7 @@ In other cases, you link them together to form an event and data pipeline. You u
 
 ##### 2-15 JavaScript (@azure/service-bus)
 
-## Tutorials
+## 3 Tutorials
 
 ### [3-1 Update inventory](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-tutorial-topics-subscriptions-portal)
 
@@ -376,11 +376,11 @@ Creating a new namespace automatically generates an initial Shared Access Signat
 
 ### 3-4 Build message-driven business applications with NServiceBus
 
-## Samples
+## 4 Samples
 
 ### 4-1 Service Bus samples
 
-## Concepts
+## 5 Concepts
 
 ### [5-1 Queues, topics, and subscriptions](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-queues-topics-subscriptions)
 
@@ -388,7 +388,7 @@ Azure Service Bus supports a set of cloud-based, message-oriented middleware tec
 
 The messaging entities that form the core of the messaging capabilities in Service Bus are **queues, topics and subscriptions**, and rules/actions.
 
-##### Queues
+#### Queues
 
 Queues offer **First in, First Out** (FIFO) message delivery to one or more competing consumers. That is, receivers typically receive and process messages in the order in which they were added to the queue. And, only one message consumer receives and processes each message. A key benefit of using queues is to achieve **temporal decoupling of application components**. In other words, the producers (senders) and consumers (receivers) don't have to send and receive messages at the same time. That's because messages are stored durably in the queue. Furthermore, the producer doesn't have to wait for a reply from the consumer to continue to process and send messages.
 
@@ -396,11 +396,11 @@ A related benefit is **load-leveling**, which enables producers and consumers to
 
 Using queues to intermediate between message producers and consumers providers an inherent loose coupling between the components. Because producers and consumers aren’t aware of each other, a consumer can be upgraded without having any effect on the producer.
 
-###### Create queues
+##### Create queues
 
 You can create queues using the Azure portal, PowerShell, CLI, or Resource Manager templates. Then, send and receive messages using clients written in C#, Java, Python, and JavaScript.
 
-###### Receive modes
+##### Receive modes
 
 You can specify two different modes in which Service Bus receives messages.
 
@@ -416,17 +416,17 @@ You can specify two different modes in which Service Bus receives messages.
 
      If the application crashes after it processes the message, but before it requests the Service Bus service to complete the message, Service Bus redelivers the message to the application when it restarts. This process is often called **at-least once** processing. That is, each message is processed at least once. However, in certain situations the same message may be redelivered. If your scenario can’t tolerate duplicate processing, add additional logic in your application to detect duplicates. For more information, see <u>Duplicate detection</u>. This feature is known as **exactly once** processing.
 
-##### Topics and subscriptions
+#### Topics and subscriptions
 
 A queue allows processing of a message by a single consumer. In contrast to queues, topics and subscriptions provide a one-to-many form of communication in a **publish and subscribe** pattern. It's useful for scaling to large numbers of recipients. Each published message is made available to each subscription registered with the topic. Publisher sends a message to a topic and one or more subscribers receive a copy of the message, depending on filter rules set on these subscriptions. The subscriptions can use additional filters to restrict the messages that they want to receive. Publishers send messages to a topic in the same way that they send messages to a queue. But, consumers don't receive messages directly from the topic. Instead, consumers receive messages from subscriptions of the topic. A <u>topic subscription</u> ==resembles a virtual queue that receives copies of the messages that are sent to the topic==. Consumers receive messages from a subscription identically to the way they receive messages from a queue.
 
 <u>The message-sending functionality of a queue maps directly to a topic and its message-receiving functionality maps to a subscription.</u> Among other things, this feature means that subscriptions support the same patterns described earlier in this section regarding queues: competing consumer, temporal decoupling, load leveling, and load balancing.
 
-###### Create topics and subscriptions
+#### Create topics and subscriptions
 
 Create a topic is similar to creating a queue, as describes in the previous section. You can create topics and subscriptions using the Azure portal, PowerShell, CLI, or Resource Manager templates. Then, send messages to a topic and receive messages from subscriptions using clients written in C#, Java, Python, and JavaScript.
 
-###### Rules and actions
+#### Rules and actions
 
 In many scenarios, messages that have specific characteristics must be processed in different ways. To enable this processing, you can configure subscriptions to find messages that have desired properties and then perform certain modifications to those properties. While Service Bus subscriptions see all messages sent to the topic, you can only copy a subset of those messages to the virtual subscription queue. This filtering is accomplished using subscription filters. Such modifications are called **filter actions**. When a subscription is created, you can supply a filter expression that operates on the properties the message. The properties can be both the system properties (for example, **Label**) and custom application properties(for example, **StoreName**). The SQL filter expression is optional in this case. Without a SQL filter expression, any filter action defined on a subscription will be done on all the messages for that subscription.
 
@@ -467,29 +467,59 @@ Try the samples in the language of your choice to explore Azure Service Bus feat
 
 Service Bus includes advanced features that enable you to solve more complex messaging problems. This article describes several of these features.
 
-Message sessions
+##### Message sessions
 
-Autoforwarding
+To create a first-in, first-out (FIFO) guarantee in Service Bus, use sessions. Message sessions enable exclusive, ordered handling of unbounded sequences of related messages. To allow for handling sessions in high-scale, high-availability systems, the session feature also allows for storing session state, which allows sessions to safely move between handlers. For more information, see <u>Message sessions: first in, first out (FIFO)</u>.
 
-Dead-letter queue
+##### Autoforwarding
 
-Scheduled delivery
+The autoforwarding feature chains a queue or subscription to another queue or topic inside the same namespace. When you use this feature, Service Bus automatically moves messages from a queue or subscription to a target queue or topic. All such moves are done transactionally.  For more information, see [Chaining Service Bus entities with autoforwarding](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-auto-forwarding).
 
-Message deferral
+##### Dead-letter queue
 
-Batching
+All Service Bus queues and topics' subscriptions have associated dead-letter queues(DLQ). A DLQ holds messages that meet the following criteria:
 
-Transactions
+* They can't be delivered successfully to any receiver.
+* They timed out.
+* They're explicitly sidelined by the receiving application.
 
-Autodelete on idle
+Messages in the dead-letter queue are annotated with the reason why they've been placed there. The dead-letter queue as a special endpoint, but otherwise acts like any regular queue. An application or tool can browse a DLQ or dequeue from it. You can also autoforward out of a dead-letter queue. For more information, see Overview of Service Bus dead-letter queues.
 
-Duplicate detection
+##### Scheduled delivery
 
-Geo-disaster recovery
+You can submit messages to a queue or a topic for delayed processing, setting a time when the message will become available for consumption. Scheduled messages can also be canceled. For more information, see [Scheduled messages](https://docs.microsoft.com/en-us/azure/service-bus-messaging/message-sequencing#scheduled-messages).
 
-Security
+##### Message deferral
 
-Next steps
+A queue or subscription client can defer retrieval of a received message until a later time. The message may have been posted out of an expected order and the client wants to wait until it receives another message. Deferred messages remain in the queue or subscription and must be reactivated explicitly using their service-assigned sequence number. For more information, see [Message deferral](https://docs.microsoft.com/en-us/azure/service-bus-messaging/message-deferral).
+
+##### Transactions
+
+A transaction groups two or more operations together into an execution scope. Service Bus allows you to group operations against multiple messaging entities within the scope of a single transaction. A message entity can be a queue, topic, or subscription. For more information, see [Overview of Service Bus transaction processing](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-transactions).
+
+##### Autodelete on idle
+
+
+
+##### Duplicate detection
+
+
+
+##### Support ordering
+
+
+
+##### Geo-disaster recovery
+
+
+
+##### Security
+
+
+
+##### Next steps
+
+
 
 #### [5-4-2 Message sessions](https://docs.microsoft.com/en-us/azure/service-bus-messaging/message-sessions)
 
@@ -505,7 +535,11 @@ Next steps
 
 #### 5-4-5 Message browsing
 
+
+
 #### 5-4-6 Message transfers, locks, and settlement
+
+
 
 #### [5-4-7 Dead-letter queues](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-dead-letter-queues)
 
@@ -608,7 +642,7 @@ See [Enable dead lettering for a queue or subscription](https://docs.microsoft.c
 
 
 
-## How-to guides
+## 6 How-to guides
 
 6-1 Develop
 
@@ -624,7 +658,7 @@ See [Enable dead lettering for a queue or subscription](https://docs.microsoft.c
 
 6-7 Troubleshoot
 
-## Reference
+## 7 Reference
 
 7-1 Monitor data reference
 

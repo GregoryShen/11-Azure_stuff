@@ -362,21 +362,170 @@ To learn what else you can do in YAML pipelines, see [YAML schema reference](htt
 
 ## [3-4 Multi-stage pipelines user experience](https://docs.microsoft.com/en-us/azure/devops/pipelines/get-started/multi-stage-pipelines-experience?view=azure-devops)
 
-
+The multi-stage pipelines experience brings improvements and ease of use to the Pipelines portal UI. This article shows you how to view and manage your pipelines using this new experience.
 
 ### Navigating pipelines
 
+You can view and manage your pipelines by choosing <u>Pipelines</u> from the left-hand menu.
+
+![](https://docs.microsoft.com/en-us/azure/devops/pipelines/get-started/media/pipelines-overview.png?view=azure-devops)
+
+You can drill down and view pipeline details, run details, pipeline analytics, job details, logs, and more.
+
+At the top of each page is a breadcrumb navigation bar. Select the different areas of the bar to navigate to different areas of the portal. The breadcrumb navigation is a convenient way to go back one or more steps.
+
+ ![](https://docs.microsoft.com/en-us/azure/devops/pipelines/get-started/media/breadcrumb-navigation.png?view=azure-devops)
+
+1. This area of the breadcrumb navigation shows you what page you're currently viewing. In this example, the page is the run summary for run number 20191209.3.
+2. One level up is a link to the pipeline details for that run.
+3. The next level up is the pipelines landing page.
+4. This link is to the FabrikamFiber project, which contains the pipeline for this run.
+5. The root breadcrumb link is to the Azure DevOps fabrikam-tailspin organization, which contains the project that contains the pipeline.
+
+Many pages also contain a back button that takes you to the previous page.
+
+![](https://docs.microsoft.com/en-us/azure/devops/pipelines/get-started/media/pipelines-back-button.png?view=azure-devops)
+
 ### Pipelines landing page
+
+From the pipelines landing page you can view pipelines and pipeline runs, create and import pipelines, manage security, and drill down into pipeline and run details.
+
+Choose Recent to view recently run pipelines (the default view), or choose All to view all pipelines.
+
+![](https://docs.microsoft.com/en-us/azure/devops/pipelines/get-started/media/view-pipelines.png?view=azure-devops)
+
+Select a pipeline to manage that pipeline and view its runs. Select the build number for the last run to view the results of that build, select the branch name to view the branch for that run, or select the context menu to run the pipeline and perform other management actions.
+
+![](https://docs.microsoft.com/en-us/azure/devops/pipelines/get-started/media/pipelines-overview-pipeline-context-menu.png?view=azure-devops)
+
+Select Runs to view all pipeline runs. You can optionally filter the displayed runs.
+
+![](https://docs.microsoft.com/en-us/azure/devops/pipelines/get-started/media/all-pipeline-runs.png?view=azure-devops)
+
+Select a pipeline run to view information about that run.
+
+Once you're done, use the breadcrumb navigation bar to navigate to the pipeline's details page.
 
 ### View pipeline details
 
+The details page for a pipeline allows you to view and manage that pipeline.
+
+![](https://docs.microsoft.com/en-us/azure/devops/pipelines/get-started/media/pipeline-overview.png?view=azure-devops)
+
+Choose Edit to edit your pipeline. For more information, see YAML pipeline editor.
+
+#### Pipeline settings
+
+You can view and configure pipeline settings from the More actions menu on the pipeline details page.
+
+![](https://docs.microsoft.com/en-us/azure/devops/pipelines/get-started/media/pipeline-more-actions.png?view=azure-devops)
+
+* Manage security - Manage security
+
+* Rename/move - Edit your pipeline name and folder location.
+
+  ![](https://docs.microsoft.com/en-us/azure/devops/pipelines/get-started/media/rename-move-pipeline.png?view=azure-devops)
+
+* Status badge - [Add a status badge to your repository](https://docs.microsoft.com/en-us/azure/devops/pipelines/create-first-pipeline?view=azure-devops&preserve-view=true#add-a-status-badge-to-your-repository)
+
+* Settings - [Pipeline settings](https://docs.microsoft.com/en-us/azure/devops/pipelines/customize-pipeline?view=azure-devops#pipeline-settings)
+
+* Delete - Deletes the pipeline including all builds and associated artifacts.
+
+* Scheduled runs - [Scheduled runs view](https://docs.microsoft.com/en-us/azure/devops/pipelines/process/scheduled-triggers?view=azure-devops#scheduled-runs-view)
+
+#### Runs
+
+Select <u>Runs</u> to view the runs for that pipeline. You can optionally filter the displayed runs.
+
+![](https://docs.microsoft.com/en-us/azure/devops/pipelines/get-started/media/pipeline-runs.png?view=azure-devops)
+
+You can choose to <u>Retain</u> or <u>Delete</u> a run from the context menu. For more information on run retention, see [Build and release retention policies](https://docs.microsoft.com/en-us/azure/devops/pipelines/policies/retention?view=azure-devops).
+
+![](https://docs.microsoft.com/en-us/azure/devops/pipelines/get-started/media/pipeline-run-context-menu.png?view=azure-devops)
+
+#### Branches
+
+Select <u>Branches</u> to view the history or run for that branch. Hover over the <u>History</u> to view a summary for each run, and select a run to navigate to the details page for that run.
+
+![](https://docs.microsoft.com/en-us/azure/devops/pipelines/get-started/media/pipeline-branches.png?view=azure-devops)
+
+#### Analytics
+
+Select <u>Analytics</u> to view pipeline metrics such as pass rate and run duration. Choose <u>View full report</u> for more information on each metric.
+
+![](https://docs.microsoft.com/en-us/azure/devops/pipelines/get-started/media/pipeline-analytics.png?view=azure-devops)
+
 ### View pipeline run details
+
+From the pipeline run summary you can view the status of your run, both while it is running and when it is complete.
+
+![](https://docs.microsoft.com/en-us/azure/devops/pipelines/get-started/media/pipeline-run-summary.png?view=azure-devops)
+
+From the summary pane you can download artifacts, and navigate to linked commits, test results, and work items.
+
+#### Cancel and re-run a pipeline
+
+If the pipeline is running, you can cancel it by choosing <u>Cancel</u>. If the run has completed, you can re-run the pipeline by choosing <u>Run new</u>.
+
+![](https://docs.microsoft.com/en-us/azure/devops/pipelines/get-started/media/cancel-pipeline-run.png?view=azure-devops)
+
+#### Pipeline run more actions menu
+
+From the <u>More actions</u> menu you can download logs, add tags, edit the pipeline, delete the run, and configure retention for the run.
+
+![](https://docs.microsoft.com/en-us/azure/devops/pipelines/get-started/media/pipeline-run-summary-context-menu.png?view=azure-devops)
+
+> :information_desk_person:Note
+>
+> You can't delete a run if the run is retained. If you don't see <u>Delete</u>, choose <u>Stop retaining run</u>, and then delete the run. If you see both <u>Delete</u> and <u>View retention releases</u>, one or more configured retention policies still apply to your run. Choose <u>View retention releases</u>, delete the policies (only the policies for the selected run are removed), and then delete the run.
+
+#### Jobs and stages
+
+The job pane displays an overview of the status of your stages and jobs. This pane may have multiple tabs depending on whether your pipeline has stages and jobs, or just jobs. In this example, the pipeline has two stages named <u>Build</u> and <u>Deploy</u>. You can drill down into the pipeline steps by choosing the job from either the <u>Stages</u> or <u>Jobs</u> pane.
+
+![](https://docs.microsoft.com/en-us/azure/devops/pipelines/get-started/media/pipeline-jobs-pane.png?view=azure-devops)
+
+Choose a job to see the steps for that job.
+
+![](https://docs.microsoft.com/en-us/azure/devops/pipelines/get-started/media/pipeline-steps-list.png?view=azure-devops)
+
+From the steps view, you can review the status and details of each step. From the <u>More actions</u> you can toggle timestamps or view a raw log of all steps in the pipeline.
+
+![](https://docs.microsoft.com/en-us/azure/devops/pipelines/get-started/media/pipeline-steps-context-menu.png?view=azure-devops)
 
 ### Manage security
 
+You can configure pipelines security on a project level from <u>More actions</u> on the pipelines landing page, and on a pipeline level on the pipeline details page.
+
+![](https://docs.microsoft.com/en-us/azure/devops/pipelines/get-started/media/pipelines-context-menu.png?view=azure-devops)
+
+To support security of your pipeline operations, you can add users to a built-in security group, set individual permissions for a user or group, or add users to predefined roles. You can manage security for Azure Pipelines in the web portal, either from the user or admin context. For more information on configuring pipelines security, see [Pipeline permissions and security roles](https://docs.microsoft.com/en-us/azure/devops/pipelines/policies/permissions?view=azure-devops).
+
 ### Task insights for failed pipeline runs
 
+Azure DevOps provides a <u>Task Insights for Failed Pipeline Runs</u> setting, that when enabled, provides pop-up notifications of build failures with a link to view a report.
+
+![](https://docs.microsoft.com/en-us/azure/devops/pipelines/get-started/media/task-insights.png?view=azure-devops)
+
+To configure this setting, navigate to [Preview features](https://docs.microsoft.com/en-us/azure/devops/project/navigation/preview-features?view=azure-devops), find <u>Task Insights for Failed Pipeline Runs</u>, and choose the desired setting.
+
+![](https://docs.microsoft.com/en-us/azure/devops/pipelines/get-started/media/task-insights-setting.png?view=azure-devops)
+
 ### Next steps
+
+Learn more about configuring pipelines in the language of your choice:
+
+* .NET Core
+* Go
+* Java
+* Node.js
+* Python
+* Containers and Container jobs
+
+Learn more about building Azure Repos and GitHub repositories.
+
+To learn what else you can do in YAML pipelines, see <u>Customize your pipeline</u>, and for a complete reference see [YAML schema reference](https://docs.microsoft.com/en-us/azure/devops/pipelines/yaml-schema).
 
 # 4 Pipeline basics
 
@@ -676,27 +825,79 @@ Post validation, you can go into the template by choosing **View template**, whi
 
 ## 4-16 DevOps Starter
 
-# Ecosystems & integration
+# 5 Ecosystems & integration
 
-Build apps
+6 Build apps
 
-Run pipeline tests
+7 Run pipeline tests
 
-Deploy apps
+8 Deploy apps
 
-Deploy apps (Classic)
+9 Deploy apps (Classic)
 
-Deploy to Azure
+10 Deploy to Azure
 
-Deploy apps using containers
+11 Deploy apps using containers
 
-Consume & publish artifacts
+# 12 Consume & publish artifacts
 
-Create & use resources
+## [12-1 Artifacts in Azure Pipelines](https://docs.microsoft.com/en-us/azure/devops/pipelines/artifacts/artifacts-overview?view=azure-devops&tabs=nuget)
 
-Manage agents & agent pools
+Azure Artifacts enable developers to consume and publish different types of packages to Artifacts feeds and public registries such as NuGet.org and npmjs.com. You can use Azure Artifacts in conjunction with Azure Pipelines to deploy packages, publish build artifacts, or integrate files between your pipeline stages to build, test, or deploy your application.
 
-Configure security & settings
+### Supported artifact types
+
+| Artifact type      | Description                                                  |
+| ------------------ | ------------------------------------------------------------ |
+| Build artifacts    | The files generated by a build. Example: .dll, .exe, or .PDB files |
+| NuGet              | Publish NuGet packages to Azure Artifacts feeds or public registries such as nuget.org |
+| npm                | Publish npm packages to Azure Artifacts feeds or public registries such as npmjs.com |
+| Maven              | Publish Maven packages to Azure Artifacts feeds.             |
+| PypI               | Publish Python packages to Azure Artifacts feeds or PyPI.org |
+| Universal packages | Publish Universal Packages to Azure Artifacts feeds.         |
+| Symbols            | Symbol files contain debugging information about the compiled executables. You can publish symbols |
+
+
+
+### Publish and consume artifacts
+
+
+
+## [12-2 Publish & download pipeline artifacts](https://docs.microsoft.com/en-us/azure/devops/pipelines/artifacts/pipeline-artifacts?view=azure-devops&tabs=yaml)
+
+
+
+## [12-3 Build artifacts](https://docs.microsoft.com/en-us/azure/devops/pipelines/artifacts/build-artifacts?view=azure-devops&tabs=yaml)
+
+
+
+## [12-4 Release pipelines](https://docs.microsoft.com/en-us/azure/devops/pipelines/release/releases?view=azure-devops)
+
+
+
+## [12-5 Release artifacts and artifact sources](https://docs.microsoft.com/en-us/azure/devops/pipelines/release/artifacts?view=azure-devops)
+
+12-6 NuGet
+
+12-7 npm
+
+12-8 Maven
+
+12-9 Python
+
+12-10 Universal Packages
+
+12-11 Symbols
+
+12-12 Restore NuGet packages
+
+12-13 Publish NuGet packages with Jenkins
+
+# 13 Create & use resources
+
+14 Manage agents & agent pools
+
+15 Configure security & settings
 
 Integrate with 
 

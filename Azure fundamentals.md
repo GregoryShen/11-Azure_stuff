@@ -9,19 +9,29 @@ After completing this learning path, you'll be able to:
 * Describe core Azure architecture components such as subscriptions, management groups, resources and resource groups
 * Summarize geographic distribution concepts such as Azure regions, region pairs, and availability zones.
 
-## Azure Fundamentals part 1: Describe core Azure concepts
+## 1 Azure Fundamentals part 1: Describe core Azure concepts
 
-### Introduction
+### [1-1 Introduction](https://docs.microsoft.com/en-us/learn/modules/intro-to-azure-fundamentals/introduction)
+
+Azure is a cloud computing platform with an ever-expanding set of services 
 
 #### What is Azure fundamentals?
 
+
+
 #### Why should I take Azure fundamentals?
+
+
 
 #### Learning objectives
 
+
+
 #### Prerequisites
 
-### What is cloud computing?
+
+
+### 1-2 What is cloud computing?
 
 Have you ever wondered what cloud computing is? It's the delivery of computing services over the internet, which is otherwise known as the cloud. These services include servers, storage, databases, networking, software, analytics, and intelligence. Cloud computing offers faster innovation, flexible resources, and economies of scale.
 
@@ -48,37 +58,47 @@ In our ever-changing digital world, two trends emerge:
 
 Software releases were once scheduled in terms of months or even years. Today, teams release features in smaller batches that are often scheduled in days or weeks. 
 
-### [What is Azure?](https://docs.microsoft.com/en-us/learn/modules/intro-to-azure-fundamentals/what-is-microsoft-azure?ns-enrollment-type=LearningPath&ns-enrollment-id=learn.az-900-describe-cloud-concepts)
+### [1-3 What is Azure?](https://docs.microsoft.com/en-us/learn/modules/intro-to-azure-fundamentals/what-is-microsoft-azure?ns-enrollment-type=LearningPath&ns-enrollment-id=learn.az-900-describe-cloud-concepts)
 
 Azure is a continually expanding set of cloud services that help your organization meet your current and future business challenges. Azure gives you the freedom to build, manage, and deploy applications on a messive global network using your favorite tools and frameworks.
 
 
 
-### Tour of Azure services
+### 1-4 Tour of Azure services
 
 
 
-### Get started with Azure accounts
+### 1-5 Get started with Azure accounts
 
 
 
-### Case study introduction
+### 1-6 Case study introduction
 
 
 
-### Knowledge check
+### 1-7 Knowledge check
 
 
 
-### Summary
+### 1-8 Summary
 
-## Part 2: Describe core Azure services
 
-## Part 3: Describe core solutions and management tools on Azure
 
-## Part 4: Describe general security and network security features
+## 2 Part 2: Describe core Azure services
 
-## Part 5: Describe identity, governance, privacy, and compliance features
 
-## Part 6: Describe Azure cost management and service level agreements
+
+## 3 Part 3: Describe core solutions and management tools on Azure
+
+
+
+## 4 Part 4: Describe general security and network security features
+
+
+
+## 5 Part 5: Describe identity, governance, privacy, and compliance features
+
+
+
+## 6 Part 6: Describe Azure cost management and service level agreements
 
