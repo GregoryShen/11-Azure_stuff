@@ -2,17 +2,17 @@
 
 # [1 :ballot_box_with_check: What is Azure Pipelines?](https://docs.microsoft.com/en-us/azure/devops/pipelines/get-started/what-is-azure-pipelines?view=azure-devops)
 
-Azure Pipelines automatically builds and tests code projects to make them available to others. It works with just about any language or project type. Azure Pipelines combines continuous integration (CI) and continuous delivery (CD) to test and build your code and ship it to any target.
+Azure Pipelines automatically builds and tests code projects to make them available to others. It works with <u>just about</u>[^1-1]  any language or project type. Azure Pipelines combines continuous integration (CI) and continuous delivery (CD) to test and build your code and ship it to any target.
 
-Continuous Integration (CI) is the practice used by development teams of automating merging and testing code. Implementing CI helps to catch bugs early in the development cycle, which makes them less expensive to fix. Automated tests execute as part of the CI process to ensure quality. Artifacts are produced  from CI systems and fed to release processes to drive frequent deployments. The Build service in Azure DevOps Server helps you set up and manage CI for your applications.
+==Continuous Integration (CI) is the practice used by development teams of automating merging and testing code.== Implementing CI helps to catch bugs early in the development cycle, which makes them less expensive to fix. Automated tests execute as part of the CI process to ensure quality. Artifacts are produced  from CI systems and fed to release processes to drive frequent deployments. 
 
-Continuous Delivery (CD) is a process by which code is built, tested, and deployed to one or more test and production environments. Deploying and testing in multiple environments increases quality. CI systems produce deployable artifacts, including infrastructure and apps. Automated release processes consume these artifacts to release new versions and fixes to existing systems. Monitoring and alerting systems run continually to drive visibility into the entire CD process.
+==Continuous Delivery (CD) is a process by which code is built, tested, and deployed to one or more test and production environments.== Deploying and testing in multiple environments increases quality. CI systems produce deployable artifacts, including infrastructure and apps. Automated release processes consume these artifacts to release new versions and fixes to existing systems. Monitoring and alerting systems run continually to drive visibility into the entire CD process.
 
-Continuous Testing (CT) on-premises or in the cloud is the use of automated build-deploy-test workflows, with a choice of technologies and frameworks, that test your changes continuously in a fast, scalable, and efficient manner.
+==Continuous Testing (CT)== on-premises or in the cloud ==is the use of automated build-deploy-test workflows==, with a choice of technologies and frameworks, ==that test your changes continuously== in a fast, scalable, and efficient manner.
 
 **Version control systems**
 
-The starting point for configuring CI and CD for your applications is to have your source code in a version control system. Azure DevOps supports two forms of version control - GitHub and Azure Repos. Any changes you push to your version control repository will be automatically built and validated.
+The starting point for configuring CI and CD for your applications is to have your source code in a version control system. Azure DevOps supports two forms of version control - Git and Azure Repos. Any changes you push to your version control repository will be automatically built and validated.
 
 **Languages**
 
@@ -22,7 +22,7 @@ You can use many languages with Azure Pipelines, including Python, Java, JavaScr
 
 You can use Azure Pipelines with most application types, such as Java, JavaScript, Node.js, Python, .NET, C++, Go, PHP, and XCode.
 
-Azure DevOps has a number of tasks to build and test your application. For example, tasks exist to build .NET, Java, Node, Android, XCode, and C++ applications. Similarly, these are tasks to run tests using a number of testing frameworks and services. You can also run command line, PowerShell, or Shell scripts in your automation.
+Azure DevOps has many tasks to build and test your application. For example, tasks exist to build .NET, Java, Node, Android, XCode, and C++ applications. Similarly, these are tasks to run tests using many testing frameworks and services. You can also run command line, PowerShell, or Shell scripts in your automation.
 
 **Deployment targets**
 
@@ -32,7 +32,7 @@ Once you have continuous integration in place, the next step is to create a rele
 
 **Continuous testing**
 
-Whether your app is on-premises or in the cloud, you can automate build-deploy-test workflows and choose the technologies and frameworks, then test your changes continuously in a fast, scalable, and efficient manner.
+Whether your app is on-premises or in the cloud, you can automate build-deploy-test workflows and choose the technologies and frameworks, then [test your changes continuously](https://docs.microsoft.com/en-us/azure/devops/pipelines/ecosystems/dotnet-core?view=azure-devops#run-your-tests) in a fast, scalable, and efficient manner.
 
 * Maintain quality and find problems as you develop. Continuous testing with Azure DevOps Server ensures your app will works after every check-in and build, enabling you to find problems earlier by running tests automatically with each build.
 * Any test type and any test framework. Choose the test technologies and frameworks you prefer to use.
@@ -44,14 +44,22 @@ To produce packages that can be consumed by others, you can publish NuGet, npm, 
 
 **What do I need to use Azure Pipelines?**
 
-To use Azure Pipelines, you need：
+To use Azure Pipelines, complete the following tasks：
 
-* An organization in Azure DevOps.
-* To have your source code stored in a version control system.
+* Create or already have an organization in Azure DevOps.
+* Store your source code in a version control system.
 
 **Pricing**
 
-If you use public projects, Azure Pipelines is free. To learn more, see What is a public project? If you use private projects, you can run up to 1,800 minutes (30 hours) of pipeline jobs for free every month. Learn more about how the pricing works based on parallel jobs.
+* **Azure DevOps Services**
+
+  If you use public projects, Azure Pipelines is free. For more information, see [What is a public project?](https://docs.microsoft.com/en-us/azure/devops/organizations/public/about-public-projects?view=azure-devops) If you use private projects, you can run up to 1,800 minutes (30 hours) of pipeline jobs for free every month. For more information about how the pricing works based on [parallel jobs](https://docs.microsoft.com/en-us/azure/devops/pipelines/licensing/concurrent-jobs?view=azure-devops). For more information, see [Pricing for Azure DevOps Services](https://azure.microsoft.com/pricing/details/devops/azure-devops-services/).
+
+* **Azure DevOps Server**
+
+  If you have five or less active users, [Azure DevOps Express](https://visualstudio.microsoft.com/downloads/) is free, simple to set up, and installs on both client and server operating systems. It supports all the same features as Azure DevOps Server 2019.
+
+  For more information, see [Pricing for Azure DevOps Server](https://azure.microsoft.com/pricing/details/devops/server/).
 
 **Why should I use Azure Pipelines?**
 
@@ -78,14 +86,14 @@ The latest way to build pipelines is with the YAML pipeline editor. You can also
 
 **Automate tests, builds, and delivery**
 
-Continuous integration (CI) automates tests and builds for your project. CI helps to catch bugs or issues in the development cycle, when they're easier and faster to fix. Items known as artifacts are produced from CI systems. They are used by the continuous delivery release pipelines to drive automatic deployments.
+Continuous integration (CI) automates tests and builds for your project. CI helps to catch bugs or issues early in the development cycle, when they're easier and faster to fix. Items known as artifacts are produced from CI systems. They're used by the continuous delivery release pipelines to drive automatic deployments.
 
 Continuous delivery automatically deploys and tests code in multiple stages to help drive quality. Continuous integration systems produce deployable artifacts, which include infrastructure and apps. Automated release pipelines consume these artifacts to release new versions and fixes to the target of your choice.
 
 | Continuous integration (CI)                     | Continuous delivery (CD)                   |
 | :---------------------------------------------- | :----------------------------------------- |
 | Increase code coverage                          | Automatically deploy code to production    |
-| Build faster b splitting test and build runs    | Ensure deployment targets have latest code |
+| Build faster by splitting test and build runs   | Ensure deployment targets have latest code |
 | Automatically ensure you don't ship broken code | Use tested code from CI process            |
 | Run tests continually                           |                                            |
 
@@ -1329,15 +1337,406 @@ Post validation, you can go into the template by choosing **View template**, whi
 
 ## 4-5 Triggers
 
-### [4-5-1 Type of triggers](https://docs.microsoft.com/en-us/azure/devops/pipelines/build/triggers?view=azure-devops)
+### [4-5-1 :ballot_box_with_check: Type of triggers](https://docs.microsoft.com/en-us/azure/devops/pipelines/build/triggers?view=azure-devops)
 
+Use triggers to run a pipeline automatically. Azure Pipelines supports many types of triggers. Based on your pipeline's type, select the appropriate trigger from the list below:
 
+**Classic build pipelines and YAML pipelines**
 
+Continuous integration (CI) triggers vary based on the type of repository you build in your pipeline.
 
+* [CI triggers in Azure Repos Git](https://docs.microsoft.com/en-us/azure/devops/pipelines/repos/azure-repos-git?view=azure-devops#ci-triggers)
+* [CI triggers in GitHub](https://docs.microsoft.com/en-us/azure/devops/pipelines/repos/github?view=azure-devops#ci-triggers)
+* [CI triggers in Bitbucket Cloud](https://docs.microsoft.com/en-us/azure/devops/pipelines/repos/bitbucket?view=azure-devops#ci-triggers)
+* [CI triggers in TFVC](https://docs.microsoft.com/en-us/azure/devops/pipelines/repos/tfvc?view=azure-devops#ci-triggers)
 
-### [4-5-2 Scheduled triggers](https://docs.microsoft.com/en-us/azure/devops/pipelines/process/scheduled-triggers?view=azure-devops&tabs=yaml)
+Pull request validation (PR) triggers also vary based on the type of repository.
 
+* [PR triggers in Azure Repos Git](https://docs.microsoft.com/en-us/azure/devops/pipelines/repos/azure-repos-git?view=azure-devops#pr-triggers)
+* [PR triggers in GitHub](https://docs.microsoft.com/en-us/azure/devops/pipelines/repos/github?view=azure-devops#pr-triggers)
+* [PR triggers in Bitbucket Cloud](https://docs.microsoft.com/en-us/azure/devops/pipelines/repos/bitbucket?view=azure-devops#pr-triggers)
 
+[Gated check-in](https://docs.microsoft.com/en-us/azure/devops/pipelines/repos/tfvc?view=azure-devops#gated) is supported for TFVC repositories.
+
+[Comment triggers](https://docs.microsoft.com/en-us/azure/devops/pipelines/repos/github?view=azure-devops#comment-triggers) are supported only for GitHub repositories.
+
+[Scheduled triggers](https://docs.microsoft.com/en-us/azure/devops/pipelines/process/scheduled-triggers?view=azure-devops) are independent of the repository and allow you to run a pipeline according to a schedule.
+
+[Pipeline triggers](https://docs.microsoft.com/en-us/azure/devops/pipelines/process/pipeline-triggers?view=azure-devops) in YAML pipelines and [build completion triggers](https://docs.microsoft.com/en-us/azure/devops/pipelines/process/pipeline-triggers-classic?view=azure-devops) in classic build pipelines allow you to trigger one pipeline upon the completion of another.
+
+**Branch consideration for triggers in YAML pipelines**
+
+YAML pipelines can have different versions of the pipeline in different branches, which can affect which version of the pipeline's triggers are evaluated and which version of the pipeline should run.
+
+| Trigger type                                                 | Pipeline YAML version                                        |
+| :----------------------------------------------------------- | :----------------------------------------------------------- |
+| CI triggers (`trigger`)                                      | The version of the pipeline in the pushed branch is used.    |
+| PR triggers (`pr`)                                           | The version of the pipeline in the source branch for the pull request is used. |
+| GitHub pull request comment triggers                         | The version of the pipeline in the source branch for the pull request is used. |
+| Scheduled triggers                                           | See [Branch considerations for scheduled triggers](https://docs.microsoft.com/en-us/azure/devops/pipelines/process/scheduled-triggers?tabs=yaml&view=azure-devops#branch-considerations-for-scheduled-triggers). |
+| Pipeline completion triggers                                 | See [Branch considerations for pipeline completion triggers](https://docs.microsoft.com/en-us/azure/devops/pipelines/process/pipeline-triggers?tabs=yaml&view=azure-devops#branch-considerations). |
+| [Azure Pipelines Action](https://github.com/marketplace/actions/azure-pipelines-action) | See [Branch considerations](https://docs.microsoft.com/en-us/azure/devops/pipelines/ecosystems/github-actions?view=azure-devops#branch-considerations). |
+
+**Classic release pipelines**
+
+[Continuous deployment triggers](https://docs.microsoft.com/en-us/azure/devops/pipelines/release/triggers?view=azure-devops#release-triggers) help you start classic releases after a classic build or YAML pipeline completes.
+
+[Scheduled release triggers](https://docs.microsoft.com/en-us/azure/devops/pipelines/release/triggers?view=azure-devops#scheduled-triggers) allow you to run a release pipeline according to a schedule.
+
+[Pull request release triggers](https://docs.microsoft.com/en-us/azure/devops/pipelines/release/triggers?view=azure-devops) are used to deploy a pull request directly using classic releases.
+
+[Stage triggers in classic release](https://docs.microsoft.com/en-us/azure/devops/pipelines/release/triggers?view=azure-devops#env-triggers) are used to configure how each stage in a classic release is triggered.
+
+### [4-5-2 :ballot_box_with_check: Scheduled triggers](https://docs.microsoft.com/en-us/azure/devops/pipelines/process/scheduled-triggers?view=azure-devops&tabs=yaml)
+
+Azure Pipelines provides several types of triggers to configure how your pipeline starts.
+
+1. Scheduled triggers start your pipeline based on a schedule, such as a nightly build. This article provides guidance on using scheduled triggers to run your pipelines based on a schedule.
+2. Event-based triggers start your pipeline in response to events, such as creating a pull request or pushing to a branch. For information on using event-based triggers, see [Triggers in Azure Pipelines](https://docs.microsoft.com/en-us/azure/devops/pipelines/build/triggers?view=azure-devops).
+
+You can combine scheduled and event-based triggers in your pipelines, for example to validate the build every time a push is made ([CI trigger](https://docs.microsoft.com/en-us/azure/devops/pipelines/build/triggers?view=azure-devops#ci-triggers)), when a pull request is made ([PR trigger](https://docs.microsoft.com/en-us/azure/devops/pipelines/build/triggers?view=azure-devops#pr-triggers)), and a nightly build (Scheduled trigger). If you want to build your pipeline only on a schedule, and not in response to event-based triggers, ensure that your pipeline doesn't have any other triggers enabled. For example, YAML pipelines in a GitHub repository have CI triggers and PR triggers enabled by default. For information on disabling default triggers, see [Triggers in Azure Pipelines](https://docs.microsoft.com/en-us/azure/devops/pipelines/build/triggers?view=azure-devops) and navigate to the section that covers your repository type.
+
+**Scheduled triggers**
+
+* <u>YAML</u>
+
+  > :information_source: Important
+  >
+  > Scheduled triggers defined using the pipeline settings UI take precedence over YAML scheduled triggers.
+  >
+  > If your YAML pipeline has both YAML scheduled triggers and UI defined scheduled triggers, only the UI defined scheduled triggers are run. To run the YAML defined scheduled triggers in your YAML pipeline, you must remove the scheduled triggers defined in the pipeline settings UI. Once all UI scheduled triggers are removed, a push must be made in order for the YAML scheduled triggers to start being evaluated.
+  >
+  > To delete UI scheduled triggers from a YAML pipeline, see [UI settings override YAML scheduled triggers](https://docs.microsoft.com/en-us/azure/devops/pipelines/troubleshooting/troubleshooting?view=azure-devops#ui-settings-override-yaml-scheduled-triggers).
+
+  Scheduled triggers configure a pipeline to run on a schedule defined using [cron syntax](https://docs.microsoft.com/en-us/azure/devops/pipelines/process/scheduled-triggers?view=azure-devops&tabs=yaml#cron-syntax).
+
+  ```yaml
+  schedules:
+  - cron: string # cron syntax defining a schedule
+    displayName: string # friendly name given to a specific schedule
+    branches:
+      include: [ string ] # which branches the schedule applies to
+      exclude: [ string ] # which branches to exclude from the schedule
+    always: boolean # whether to always run the pipeline or only if there have been source code changes since the last successful scheduled run. The default is false.
+  ```
+
+  Scheduled pipelines in YAML have the following constraints.
+
+  * The time zone for cron schedules is UTC.
+  * If you specify an `exclude` clause without an `include` clause for `branches`, it's equivalent to specifying `*` in the `include` clause.
+  * You can't use pipeline variables when specifying schedules.
+  * If you use [templates in your YAML file](https://docs.microsoft.com/en-us/azure/devops/pipelines/process/templates?view=azure-devops), then the schedules must be specified in the main YAML file and not in the template files.
+
+* <u>Classic</u>
+
+  Select the days and times when you want to run the build using the classic editor.
+  
+  If your repository is Azure Repos Git, GitHub, or Other Git, then you can also specify branches to include and exclude. If you want to use wildcard characters, then type the branch specification (for example, `features/modules/*`) and then press Enter.
+  
+  ![](https://docs.microsoft.com/en-us/azure/devops/pipelines/process/media/triggers/scheduled-trigger-git-india.png?view=azure-devops)
+
+**Examples**
+
+* <u>YAML</u>
+
+  The following example defines two schedules:
+
+  ```yaml
+  schedules:
+  - cron: "0 0 * * *"
+    displayName: Daily midnight build
+    branches:
+      include:
+      - main
+      - releases/*
+      exclude:
+      - releases/ancient/*
+  - cron: "0 12 * * 0"
+    displayName: Weekly Sunday build
+    branches:
+      include:
+      - releases/*
+    always: true
+  ```
+
+  The first schedule, **Daily midnight build**, runs a pipeline at midnight every day, but only if the code has changed since the last successful scheduled run, for `main` and all `releases/*` branches, except the branches under `releases/ancient/*`.
+
+  he second schedule, **Weekly Sunday build**, runs a pipeline at noon on Sundays, whether the code has changed or not since the last run, for all `releases/*` branches.
+
+  > :notes:Note
+  >
+  > The time zone for cron schedules is UTC, so in these examples, the midnight build and the noon build are at midnight and noon in UTC.
+
+  For more examples, see [Migrating from the classic editor](https://docs.microsoft.com/en-us/azure/devops/pipelines/process/scheduled-triggers?view=azure-devops&tabs=yaml#migrating-from-the-classic-editor).
+
+* <u>Classic</u>
+
+  <u>Example: Nightly build of Git repo in multiple time zones</u>
+  
+  In this example, the classic editor scheduled trigger has two entries, which produce the following builds.
+  
+  * Every Monday - Friday at 3:00 AM (UTC + 5:30 time zone), build branches that meet the `features/india/*` branch filter criteria
+  
+    ![](https://docs.microsoft.com/en-us/azure/devops/pipelines/process/media/triggers/scheduled-trigger-git-india.png?view=azure-devops)
+  
+  * Every Monday - Friday at 3:00 AM (UTC - 5:00 time zone), build branches that meet the `features/nc/*` branch filter criteria
+  
+    ![](https://docs.microsoft.com/en-us/azure/devops/pipelines/process/media/triggers/scheduled-trigger-git-nc.png?view=azure-devops)
+  
+  <u>Example: Nightly build with different frequencies</u>
+  
+  In this example, the classic editor scheduled trigger has two entries, producing the following builds.
+  
+  * Every Monday - Friday at 3:00 AM UTC, build branches that meet the `main` and `releases/*` branch filter criteria
+  
+    ![](https://docs.microsoft.com/en-us/azure/devops/pipelines/process/media/triggers/scheduled-trigger-git-week-day-night.png?view=azure-devops)
+  
+  * Every Sunday at 3:00 AM UTC, build the `releases/lastversion` branch, even if the source or pipeline hasn't changed
+  
+    ![](https://docs.microsoft.com/en-us/azure/devops/pipelines/process/media/triggers/scheduled-trigger-git-weekly-night.png?view=azure-devops)
+
+**Cron syntax**
+
+* <u>YAML</u>
+
+  Each Azure Pipelines scheduled trigger cron expression is a space-delimited expression with five entries in the following order.
+
+  ```shell
+  mm HH DD MM DW
+   \  \  \  \  \__ Days of week
+    \  \  \  \____ Months
+     \  \  \______ Days
+      \  \________ Hours
+       \__________ Minutes
+  ```
+
+  | Field        | Accepted values                                              |
+  | :----------- | :----------------------------------------------------------- |
+  | Minutes      | 0 through 59                                                 |
+  | Hours        | 0 through 23                                                 |
+  | Days         | 1 through 31                                                 |
+  | Months       | 1 through 12, full English names, first three letters of English names |
+  | Days of week | 0 through 6 (starting with Sunday), full English names, first three letters of English names |
+
+  Values can be in the following formats.
+
+  | Format          | Example          | Description                                                  |
+  | :-------------- | :--------------- | :----------------------------------------------------------- |
+  | Wildcard        | `*`              | Matches all values for this field                            |
+  | Single value    | `5`              | Specifies a single value for this field                      |
+  | Comma delimited | `3,5,6`          | Specifies multiple values for this field. Multiple formats can be combined, like `1,3-6` |
+  | Ranges          | `1-3`            | The inclusive range of values for this field                 |
+  | Intervals       | `*/4` or `1-5/2` | Intervals to match for this field, such as every fourth value or the range 1-5 with a step interval of 2 |
+
+  | Example                                              | Cron expression                                              |
+  | :--------------------------------------------------- | :----------------------------------------------------------- |
+  | Build every Monday, Wednesday, and Friday at 6:00 PM | `0 18 * * Mon,Wed,Fri`, `0 18 * * 1,3,5`, or `0 18 * * 1-5/2` |
+  | Build every 6 hours                                  | `0 0,6,12,18 * * *`, `0 */6 * * *` or `0 0-18/6 * * *`       |
+  | Build every 6 hours starting at 9:00 AM              | `0 9,15,21 * * *` or `0 9-21/6 * * *`                        |
+
+  For more information on supported formats, see [Crontab Expression](https://github.com/atifaziz/NCrontab/wiki/Crontab-Expression).
+
+* <u>Classic</u>
+
+  Classic schedules are defined using a graphical editor instead of cron syntax. For information on defining classic schedules, see [Examples](https://docs.microsoft.com/en-us/azure/devops/pipelines/process/scheduled-triggers?view=azure-devops&tabs=classic#examples).
+
+**Scheduled runs view**
+
+* <u>YAML</u>
+
+  You can view a preview of upcoming scheduled builds by choosing **Scheduled runs** from the context menu on the [pipeline details page](https://docs.microsoft.com/en-us/azure/devops/pipelines/get-started/multi-stage-pipelines-experience?view=azure-devops#view-pipeline-details) for your pipeline.
+
+  ![](https://docs.microsoft.com/en-us/azure/devops/pipelines/process/media/triggers/scheduled-runs-menu.png?view=azure-devops)
+
+  After you create or update your scheduled triggers, you can verify them using this view.
+
+  ![](https://docs.microsoft.com/en-us/azure/devops/pipelines/process/media/triggers/scheduled-runs.png?view=azure-devops)
+
+  This example displays the scheduled runs for the following schedule.
+
+  ```yaml
+  schedules:
+  - cron: "0 0 * * *"
+    displayName: Daily midnight build
+    branches:
+      include:
+      - main
+  ```
+
+  The **Scheduled runs** windows displays the times converted to the local time zone set on the computer used to browse to the Azure DevOps portal. This example displays a screenshot taken in the EST time zone.
+
+* <u>Classic</u>
+
+  You can view a preview of upcoming scheduled builds by choosing **Scheduled runs** from the context menu on the [pipeline details page](https://docs.microsoft.com/en-us/azure/devops/pipelines/get-started/multi-stage-pipelines-experience?view=azure-devops#view-pipeline-details) for your pipeline.
+  
+  ![](https://docs.microsoft.com/en-us/azure/devops/pipelines/process/media/triggers/scheduled-runs-menu-classic.png?view=azure-devops)
+  
+  After you create or update your scheduled triggers, you can verify them using this view.
+  
+  ![](https://docs.microsoft.com/en-us/azure/devops/pipelines/process/media/triggers/scheduled-runs-classic.png?view=azure-devops)
+
+**Running even when there are no code changes**
+
+By default, your pipeline doesn't run as scheduled if there have been no code changes since the last successful scheduled run. For instance, consider that you've scheduled a pipeline to run every night at 9:00pm. During the weekdays, you push various changes to your code. The pipeline runs as per schedule. During the weekends, you don't make any changes to your code. If there have been no code changes since the scheduled run on Friday, then the pipeline doesn't run as scheduled during the weekend.
+
+* <u>YAML</u>
+
+  To force a pipeline to run even when there are no code changes, you can use the `always` keyword.
+
+  ```yaml
+  schedules:
+  - cron: ...
+    ...
+    always: true
+  ```
+
+* <u>Classic</u>
+
+  To configure the scheduled pipeline to build only if there has been a change since the last build, check **Only schedule builds if the source or pipeline has changed**.
+  
+  ![](https://docs.microsoft.com/en-us/azure/devops/pipelines/process/media/triggers/scheduled-trigger-git-india.png?view=azure-devops)
+
+**Limits on the number of scheduled runs**
+
+There are certain limits on how often you can schedule a pipeline to run. These limits have been put in place to prevent misuse of Azure Pipelines resources, particularly the Microsoft-hosted agents. This limit is around 1000 runs per pipeline per week.
+
+**Migrating from the classic editor**
+
+The following examples show you how to migrate your schedules from the classic editor to YAML.
+
+* **<u>Example: Nightly build of Git repo in multiple time zones</u>**
+
+  * Every Monday - Friday at 3:00 AM (UTC + 5:30 time zone), build branches that meet the `features/india/*` branch filter criteria
+
+    ![](https://docs.microsoft.com/en-us/azure/devops/pipelines/process/media/triggers/scheduled-trigger-git-india.png?view=azure-devops)
+
+  * Every Monday - Friday at 3:00 AM (UTC - 5:00 time zone), build branches that meet the `features/nc/*` branch filter criteria
+
+    ![](https://docs.microsoft.com/en-us/azure/devops/pipelines/process/media/triggers/scheduled-trigger-git-nc.png?view=azure-devops)
+
+  The equivalent YAML scheduled trigger is:
+
+  ```yaml
+  schedules:
+  - cron: "30 21 * * Sun-Thu"
+    displayName: M-F 3:00 AM (UTC + 5:30) India daily build
+    branches:
+      include:
+      - /features/india/*
+  - cron: "0 8 * * Mon-Fri"
+    displayName: M-F 3:00 AM (UTC - 5) NC daily build
+    branches:
+      include:
+      - /features/nc/*
+  ```
+
+  In the first schedule, **M-F 3:00 AM (UTC + 5:30) India daily build**, the cron syntax (`mm HH DD MM DW`) is `30 21 * * Sun-Thu`.
+
+  * Minutes and Hours - `30 21` - This maps to `21:30 UTC` (`9:30 PM UTC`). Since the specified time zone in the classic editor is **UTC + 5:30**, we need to subtract 5 hours and 30 minutes from the desired build time of 3:00 AM to arrive at the desired UTC time to specify for the YAML trigger.
+  * Days and Months are specified as wildcards since this schedule doesn't specify to run only on certain days of the month or on a specific month.
+  * Days of the week - `Sun-Thu` - because of the timezone conversion, for our builds to run at 3:00 AM in the UTC + 5:30 India time zone, we need to specify starting them the previous day in UTC time. We could also specify the days of the week as `0-4` or `0,1,2,3,4`.
+
+  In the second schedule, **M-F 3:00 AM (UTC - 5) NC daily build**, the cron syntax is `0 8 * * Mon-Fri`.
+
+  * Minutes and Hours - `0 8` - This maps to `8:00 AM UTC`. Since the specified time zone in the classic editor is **UTC - 5:00**, we need to add 5 hours from the desired build time of 3:00 AM to arrive at the desired UTC time to specify for the YAML trigger.
+  * Days and Months are specified as wildcards since this schedule doesn't specify to run only on certain days of the month or on a specific month.
+  * Days of the week - `Mon-Fri` - Because our timezone conversions don't span multiple days of the week for our desired schedule, we don't need to do any conversion here. We could also specify the days of the week as `1-5` or `1,2,3,4,5`.
+
+  > :notebook_with_decorative_cover: Important
+  >
+  > The UTC time zones in YAML scheduled triggers don't <u>account for</u>[^4-5-2-1] <u>daylight savings time</u>[^4-5-2-2].
+  >
+  > :tipping_hand_man: Tip
+  >
+  > When using 3 letter days of the week and wanting a span of multiple days through Sun, Sun should be considered the first day of the week e.g. For a schedule of midnight EST, Thursday to Sunday, the cron syntax is `0 5 * * Sun,Thu-Sat`
+
+* <u>**Example: Nightly build with different frequencies**</u>
+
+  In this example, the classic editor scheduled trigger has two entries, producing the following builds.
+  
+  * Every Monday - Friday at 3:00 AM UTC, build branches that meet the `main` and `releases/*` branch filter criteria
+  
+    ![](https://docs.microsoft.com/en-us/azure/devops/pipelines/process/media/triggers/scheduled-trigger-git-week-day-night.png?view=azure-devops-2022)
+  
+  * Every Sunday at 3:00 AM UTC, build the `releases/lastversion` branch, even if the source or pipeline hasn't changed
+  
+    ![](https://docs.microsoft.com/en-us/azure/devops/pipelines/process/media/triggers/scheduled-trigger-git-weekly-night.png?view=azure-devops-2022)
+  
+  The equivalent YAML scheduled trigger is:
+  
+  ```yaml
+  schedules:
+  - cron: "0 3 * * Mon-Fri"
+    displayName: M-F 3:00 AM (UTC) daily build
+    branches:
+      include:
+      - main
+      - /releases/*
+  - cron: "0 3 * * Sun"
+    displayName: Sunday 3:00 AM (UTC) weekly latest version build
+    branches:
+      include:
+      - /releases/lastversion
+    always: true
+  ```
+  
+  In the first schedule, **M-F 3:00 AM (UTC) daily build**, the cron syntax is `0 3 * * Mon-Fri`.
+  
+  * Minutes and Hours - `0 3` - This maps to `3:00 AM UTC`. Since the specified time zone in the classic editor is **UTC**, we don't need to do any time zone conversions.
+  * Days and Months are specified as wildcards since this schedule doesn't specify to run only on certain days of the month or on a specific month.
+  * Days of the week - `Mon-Fri` - because there's no timezone conversion, the days of the week map directly from the classic editor schedule. We could also specify the days of the week as `1,2,3,4,5`.
+  
+  In the second schedule, **Sunday 3:00 AM (UTC) weekly latest version build**, the cron syntax is `0 3 * * Sun`.
+  
+  * Minutes and Hours - `0 3` - This maps to `3:00 AM UTC`. Since the specified time zone in the classic editor is **UTC**, we don't need to do any time zone conversions.
+  * Days and Months are specified as wildcards since this schedule doesn't specify to run only on certain days of the month or on a specific month.
+  * Days of the week - `Sun` - Because our timezone conversions don't span multiple days of the week for our desired schedule, we don't need to do any conversion here. We could also specify the days of the week as `0`.
+  * We also specify `always: true` since this build is scheduled to run whether or not the source code has been updated.
+
+**FAQ**
+
+* <u>I defined a schedule in the YAML file. But it didn't run. What happened?</u>
+
+  * Check the next few runs that Azure Pipelines has scheduled for your pipeline. You can find these runs by selecting the **Scheduled runs** action in your pipeline. The list is filtered down to only show you the upcoming few runs over the next few days. If this doesn't meet your expectation, it's probably the case that you've mistyped your cron schedule, or you don't have the schedule defined in the correct branch. Read the topic above to understand how to configure schedules. Reevaluate your cron syntax. All the times for cron schedules are in UTC.
+  * Make a small trivial change to your YAML file and push that update into your repository. If there was any problem in reading the schedules from the YAML file earlier, it should be fixed now.
+  * If you have any schedules defined in the UI, then your YAML schedules aren't honored. Ensure that you don't have any UI schedules by navigating to the editor for your pipeline and then selecting **Triggers**.
+  * There's a limit on the number of runs you can schedule for a pipeline. Read more about [limits](https://docs.microsoft.com/en-us/azure/devops/pipelines/process/scheduled-triggers?view=azure-devops-2022&tabs=yaml#limits).
+  * If there are no changes to your code, they Azure Pipelines may not start new runs. Learn how to [override](https://docs.microsoft.com/en-us/azure/devops/pipelines/process/scheduled-triggers?view=azure-devops-2022&tabs=yaml#always) this behavior.
+
+* <u>My YAML schedules were working fine. But, they stopped working now. How do I debug this?</u>
+
+  * If you didn't specify `always:true`, your pipeline won't be scheduled unless there are any updates made to your code. Check whether there have been any code changes and how you [configured the schedules](https://docs.microsoft.com/en-us/azure/devops/pipelines/process/scheduled-triggers?view=azure-devops-2022&tabs=yaml#always).
+  * There's a [limit](https://docs.microsoft.com/en-us/azure/devops/pipelines/process/scheduled-triggers?view=azure-devops-2022&tabs=yaml#limits) on how many times you can schedule your pipeline. Check if you've exceeded those limits.
+  * Check if someone enabled more schedules in the UI. Open the editor for your pipeline, and select **Triggers**. If they defined schedules in the UI, then your YAML schedules won't be honored.
+  * Check if your pipeline is paused or disabled. Select **Settings** for your pipeline.
+  * Check the next few runs that Azure Pipelines has scheduled for your pipeline. You can find these runs by selecting the **Scheduled runs** action in your pipeline. If you don't see the schedules that you expected, make a small trivial change to your YAML file, and push the update to your repository. This should resync the schedules.
+  * If you use GitHub for storing your code, it's possible that Azure Pipelines may have been throttled by GitHub when it tried to start a new run. Check if you can start a new run manually.
+
+* <u>My code hasn't changed, yet a scheduled build is triggered. Why?</u>
+
+  * You might have enabled an option to **always** run a scheduled build even if there are no code changes. If you use a YAML file, verify the syntax for the schedule in the YAML file. If you use classic pipelines, verify if you checked this option in the scheduled triggers.
+  * You might have updated the build pipeline or some property of the pipeline. This will cause a new run to be scheduled even if you haven't updated your source code. Verify the **History** of changes in the pipeline using the classic editor.
+  * You might have updated the service connection used to connect to the repository. This will cause a new run to be scheduled even if you haven't updated your source code.
+  * Azure Pipelines first checks if there are any updates to your code. If Azure Pipelines is unable to reach your repository or get this information, it will create an [informational run](https://docs.microsoft.com/en-us/azure/devops/pipelines/process/information-run?view=azure-devops-2022). It's a dummy build to let you know that Azure Pipelines is unable to reach your repository.
+  * Your pipeline may not have a completely successful build. In order to determine whether to schedule a new build or not, Azure DevOps looks up the last completely successful scheduled build. If it doesn't find one, it triggers a new scheduled build. Partially successful scheduled builds aren't considered successful, so if your pipeline only has partially successful builds, Azure DevOps will trigger scheduled builds, even if your code hasn't changed.
+
+* <u>I see the planned run in the Scheduled runs panel. However, it doesn't run at that time. Why?</u>
+
+  * The **Scheduled runs** panel shows all potential schedules. However, it may not actually run unless you have made real updates to the code. To force a schedule to always run, ensure that you have set the **always** property in the YAML pipeline, or checked the option to always run in a classic pipeline.
+
+* <u>Schedules defined in YAML pipeline work for one branch but not the other. How do I fix this?</u>
+
+  Schedules are defined in YAML files, and these files are associated with branches. If you want a pipeline to be scheduled for a particular branch, say `features/X`, then make sure that the YAML file **in that branch** has the cron schedule defined in it, and that it has the correct branch inclusions[^4-5-2-3] for the schedule. The YAML file in the `features/X` branch should have the following `schedule` in this example:
+
+  ```yaml
+  schedules:
+  - cron: "0 12 * * 0" 	# replace with your schedule
+    branches:
+      include:
+      - features/X
+  ```
+
+  For more information, see [Branch considerations for scheduled triggers](https://docs.microsoft.com/en-us/azure/devops/pipelines/process/scheduled-triggers?view=azure-devops-2022&tabs=yaml#branch-considerations-for-scheduled-triggers).
 
 ### [4-5-3 Pipeline completion triggers](https://docs.microsoft.com/en-us/azure/devops/pipelines/process/pipeline-triggers?view=azure-devops)
 
@@ -1353,15 +1752,73 @@ Post validation, you can go into the template by choosing **View template**, whi
 
 ## 4-6 Tasks & templates
 
-### 4-6-1 Task types & usage
+### [4-6-1 Task types & usage](https://docs.microsoft.com/en-us/azure/devops/pipelines/process/tasks?view=azure-devops&tabs=yaml)
+
+A **task** is the building block for defining automation in a pipeline. A task is simply a packaged script or procedure that has been abstracted with a set of inputs.
+
+When you add a task to your pipeline, it may also add a set of **demands** to the pipeline. The demands define the prerequisites that must be installed on the [agent](https://docs.microsoft.com/en-us/azure/devops/pipelines/agents/agents?view=azure-devops) for the task to run. When you run the build or deployment, an agent that meets these demands will be chosen.
+
+When you run a [job](https://docs.microsoft.com/en-us/azure/devops/pipelines/process/phases?view=azure-devops), all the tasks are run in sequence, one after the other. To run the same set of tasks in parallel on multiple agents, or to run some tasks without using an agent, see [jobs](https://docs.microsoft.com/en-us/azure/devops/pipelines/process/phases?view=azure-devops).
+
+By default, all tasks run in the same context, whether that's on the [host](https://docs.microsoft.com/en-us/azure/devops/pipelines/process/phases?view=azure-devops) or in a [job container](https://docs.microsoft.com/en-us/azure/devops/pipelines/process/container-phases?view=azure-devops). You may optionally use [step targets](https://docs.microsoft.com/en-us/azure/devops/pipelines/process/tasks?view=azure-devops&tabs=yaml#step-target) to control context for an individual task.
+
+Learn more about how to specify properties for a task with the [built-in tasks](https://docs.microsoft.com/en-us/azure/devops/pipelines/tasks/?view=azure-devops).
+
+**Custom tasks**
+
+We provide some [built-in tasks](https://docs.microsoft.com/en-us/azure/devops/pipelines/tasks/?view=azure-devops) to enable fundamental build and deployment scenarios. We have also provided guidance for [creating your own custom task](https://docs.microsoft.com/en-us/azure/devops/extend/develop/add-build-task?view=azure-devops).
+
+In addition, [Visual Studio Marketplace](https://marketplace.visualstudio.com/azuredevops) offers a number of extensions; each of which, when installed to your subscription or collection, extends the task catalog with one or more tasks. Furthermore, you can write your own [custom extensions](https://docs.microsoft.com/en-us/azure/devops/integrate/?view=azure-devops) to add tasks to Azure Pipelines or TFS.
+
+In YAML pipelines, you refer to tasks by name. ==If a name matches both an in-box task and a custom task, the in-box task will take precedence. You can use the task GUID or a fully qualified name for the custom task to avoid this risk:==
+
+```yaml
+steps:
+- task: myPublisherId.myExtensionId.myContributionId.myTaskName@1 #format exmple
+- task: qetza.replacetokens.replacetokens-task.replacetoken@3 #working example
+```
+
+To find `myPublisherId` and `myExtensionId`, select **Get** on a task in the marketplace. The values after the `itemName` in your URL string are `myPublisherId` and `myExtensionId`. You can also find the fully qualified name by adding the task to a [Release pipeline](https://docs.microsoft.com/en-us/azure/devops/pipelines/release/releases?view=azure-devops) and selecting **View YAML** when editing the task.
+
+**Task versions**
+
+
+
+**Task control options**
+
+
+
+**Environment variables**
+
+
+
+**Build tool installers (Azure Pipelines)**
+
+
+
+**Related articles**
+
+
+
+**Help and support**
+
+
 
 ### 4-6-2 Task groups (classic)
 
-### 4-6-3 Template types & usage
 
-### 4-6-4 Add a custom task extension
 
-### 4-6-5 Upload tasks to project collection
+### [4-6-3 Template types & usage](https://docs.microsoft.com/en-us/azure/devops/pipelines/process/templates?view=azure-devops)
+
+
+
+### [4-6-4 Add a custom task extension](https://docs.microsoft.com/en-us/azure/devops/extend/develop/add-build-task?toc=%2Fazure%2Fdevops%2Fpipelines%2Ftoc.json&bc=%2Fazure%2Fdevops%2Fpipelines%2Fbreadcrumb%2Ftoc.json&view=azure-devops)
+
+
+
+### [4-6-5 Upload tasks to project collection](https://docs.microsoft.com/en-us/azure/devops/extend/develop/upload-tasks?toc=%2Fazure%2Fdevops%2Fpipelines%2Ftoc.json&bc=%2Fazure%2Fdevops%2Fpipelines%2Fbreadcrumb%2Ftoc.json&view=azure-devops)
+
+
 
 ## 4-7 Jobs & stages
 
@@ -1445,7 +1902,7 @@ Azure Artifacts enable developers to consume and publish different types of pack
 
 
 
-### Publish and consume artifacts
+**Publish and consume artifacts**
 
 
 
@@ -1481,17 +1938,97 @@ Azure Artifacts enable developers to consume and publish different types of pack
 
 # 13 Create & use resources
 
-14 Manage agents & agent pools
+# 14 Manage agents & agent pools
+
+## [14-1 About agents & agent pools](https://docs.microsoft.com/en-us/azure/devops/pipelines/agents/agents?view=azure-devops-2022&tabs=browser)
+
+To build your code or deploy your software using Azure Pipelines, you need at least one agent. As you add more code and people, you'll eventually need more.
+
+When your pipeline runs, the system begins one or more jobs. ==An agent is computing infrastructure with installed agent software that runs one job at a time.==
+
+Jobs can be run [directly on the host machine of the agent](https://docs.microsoft.com/en-us/azure/devops/pipelines/process/phases?view=azure-devops-2022) or [in a container](https://docs.microsoft.com/en-us/azure/devops/pipelines/process/container-phases?view=azure-devops-2022).
+
+**Self-hosted agents**
+
+An agent that you set up and manage on your own to run jobs is a **self-hosted agent**. You can use self-hosted agents in Azure Pipelines or Azure DevOps Server, formerly named Team Foundation Server (TFS). Self-hosted agents give you more control to install dependent software needed for your builds and deployments. Also, machine-level caches and configuration persist from run to run, which can boost speed.
+
+> :information_source: Note
+>
+> Although multiple agents can be installed per machine, we strongly suggest to only install one agent per machine. Installing two or more agents may adversely affect performance and the result of your pipelines.
+
+**Parallel jobs**
+
+
+
+**Capabilities**
+
+* **Browser**
+
+  
+
+* **Azure DevOps CLI**
+
+  
+
+
+
+**Communication**
+
+* **Communication with TFS**
+
+**Authentication**
+
+* Personal Access Token (PAT):
+* Integrated
+* Negotiate
+* Alternate
+
+**Interactive vs. service**
+
+
+
+**Agent account**
+
+
+
+**Agent version and upgrades**
+
+
+
+**FAQ**
+
+* How do I make sure I have the latest v2 agent version?
+* Can I update my v2 agents that are part of an Azure DevOps Server pool?
+* Do self-hosted agents have any performance advantages over Microsoft-hosted agents?
+* Can I install multiple self-hosted agents on the same machine?
+* What’s the behavior of agents when the pipeline jobs are cancelled?
+* How can I trigger agent updates programmatically for specific agent pool?
+* URI Parameters
+
+**Learn more**
+
+
+
+14-2 Create & manage agent pools
+
+14-3 Microsoft-hosted agents
+
+14-4 Self-hosted Linux agents
+
+
 
 15 Configure security & settings
 
 Integrate with
 
 
-
+[^1-1]: 几乎; 几近; 大约; 马上  almost
 [^2-1]: **[only before noun]** used to talk about a particular person, thing, group of things etc without naming them or describing them exactly
-[^4-2-1]: n.智能感知
-[^4-2-2]: [ˈpælɪt] n.调色板，颜料 a thin curved board that an artist uses to mix paints, holding it by putting his or her thumb through a hole at the edge
 [^3-2-1]: n.棒形纽扣; 套索扣; 转换键; 切换键   v.切换
 [^3-2-2]: n.滑雪者，滑冰者; 会滚动之物 ; [棒]弧度不大的曲球; 滑块
 [^3-2-3]: n.保留; 记忆力，保持力; 滞留，扣留; 闭尿  *formal* the act of keeping something
+[^4-2-1]: n.智能感知
+[^4-2-2]: [ˈpælɪt] n.调色板，颜料 a thin curved board that an artist uses to mix paints, holding it by putting his or her thumb through a hole at the edge
+[^4-5-2-1]: 说明（原因、理由等）; 导致，引起; （在数量、比例上）占; 对…负责 to be the reason why something happens **SYN** explain
+[^4-5-2-2]: 夏令时 time as adjusted to achieve longer evening daylight in summer by setting the clocks an hour ahead of the standard time.
+[^4-5-2-3]: n.包含; 内含物 [countable] someone or something that has been included in a larger group
