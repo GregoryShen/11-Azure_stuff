@@ -366,13 +366,13 @@ Enable an application to announce events to multiple interested consumers asynch
 
 **Also called**: Pub/sub messaging
 
-### 2-4-1 Context and problem
+**Context and problem**
 
 In cloud-based and distributed applications, components of the system often need to provide information to other components as events happen.
 
 ==Asynchronous messaging is an effective way to decouple senders from consumers, and avoid blocking the sender to wait for a response.== However, using a dedicated message queue for each consumer does not effectively scale to many consumers. Also, some of the consumers might be interested in only a subset of the information. How can the sender announce events to all interested consumers without knowing their identities?
 
-### 2-4-2 Solution
+**Solution**
 
 Introduce an asynchronous messaging subsystem that includes the following:
 
@@ -395,7 +395,7 @@ Pub/sub messaging has the following benefits:
 * It ==improves testability==. Channels can be monitored and messages can be inspected or logged as part of an overall integration test strategy.
 * It provides ==separation of concerns for your applications==. Each application can focus on its core capabilities, while the messaging infrastructure handles everything required to reliably route messages to multiple consumers. 
 
-### 2-4-3 Issues and considerations
+**Issues and considerations**
 
 Consider the following points when deciding how to implement this pattern:
 
@@ -414,7 +414,7 @@ Consider the following points when deciding how to implement this pattern:
 * **Message expiration**. A message might have a limited lifetime. If it isn't processed within this period, it might no longer be relevant and should be discarded. A sender can specify an expiration time as part of the data in the message. A receiver can examine this information before deciding whether to perform the business logic associated with the message.
 * **Message scheduling**. A message might be temporarily embargoed[^9] and should not be processed until a specific date and time. The message should not be available to a receiver until this time.
 
-### 2-4-4 When to use this pattern
+**When to use this pattern**
 
 Use this pattern when:
 
@@ -429,13 +429,13 @@ This pattern might not be useful when:
 * An application has only a few consumers who need significantly different information from the producing application.
 * An application requires near real-time interaction with consumers.
 
-### 2-4-5 Example
+**Example**
 
 The following diagram shows enterprise integration architecture that uses Service Bus to coordinate workflows, and Event Grid to notify subsystems of events that occur. For more information, see [Enterprise integration on Azure using message queues and events](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/enterprise-integration/queues-events).
 
 ![Enterprise integration architecture](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/enterprise-integration/_images/enterprise-integration-queues-events.png)
 
-### 2-4-6 Next steps
+**Next steps**
 
 The following guidance might be relevant when implementing this pattern:
 
@@ -443,12 +443,64 @@ The following guidance might be relevant when implementing this pattern:
 * The [Event-driven architecture style](https://docs.microsoft.com/en-us/azure/architecture/guide/architecture-styles/event-driven) is an architecture style that uses pub/sub messaging.
 * [Asynchronous Messaging Primer[^11]](https://docs.microsoft.com/en-us/previous-versions/msp-n-p/dn589781(v=pandp.10)). Message queues are an asynchronous communications mechanism. If a consumer service needs to send a reply to an application, it might be necessary to implement some form of response messaging. The Asynchronous Messaging Primer provides information on how to implement request/reply messaging using message queues.
 
-### 2-4-1-7 Related guidance
+**Related guidance**
 
 The following patterns might be relevant when implementing this pattern:
 
 * [Observer pattern](https://en.wikipedia.org/wiki/Observer_pattern). The Publish-Subscribe pattern builds on the Observer pattern by decoupling subjects from observers via asynchronous messaging.
 * [Message Broker pattern](https://en.wikipedia.org/wiki/Message_broker). Many messaging subsystems that support a publish-subscribe model are implemented via a message broker.
+
+## [2-5 Queue-Based Load Leveling](https://docs.microsoft.com/en-us/azure/architecture/patterns/queue-based-load-leveling)
+
+Use a queue that acts as a buffer between a task and a service it invokes in order to smooth intermittent heavy loads that can cause the service to fail or the task to time out. This can help to minimize the impact of peaks <u>in demand</u>[^2-5-1] on availability and responsiveness for both the task and the service.
+
+**Context and problem**
+
+Many solutions in the cloud involve running tasks that invoke services. In this environment, if a service is subjected to intermittent heavy loads, it can cause performance or reliability issues.
+
+A service could be part of the same solution as the tasks that use it, or it could be a third-party service providing access to frequently used resources such as a cache or a storage service. If the same service is used by a number of tasks running concurrently, it can be difficult to predict the volume of requests to the service at any time.
+
+A service might experience peaks in demand that cause it to overload and be unable to respond to requests in a timely manner. Flooding a service with a large number of concurrent requests can also result in the service failing if it's unable to handle the contention[^2-5-2] these requests cause.
+
+**Solution**
+
+Refactor the solution and introduce a queue between the task and the service. The task and the service run asynchronously. The task posts a message containing the data required by the service to a queue. The queue acts as a buffer, storing the message until it's retrieved by the service. The service retrieves the messages from the queue and processes them. Requests from a number of tasks, which can be generated at a highly variable rate, can be passed to the service through the same message queue. This figure shows using a queue to level[^2-5-3] the load on a service.
+
+![](https://docs.microsoft.com/en-us/azure/architecture/patterns/_images/queue-based-load-leveling-pattern.png)
+
+The queue decouples the tasks from the service, and the service can handle the messages at its own pace regardless of the volume of requests from concurrent tasks. Additionally, there's no delay to a task if the service isn't available at the time it posts a message to the queue.
+
+This pattern provides the following benefits:
+
+* It can help to maximize availability because delays arising in services won't have an immediate and direct impact on the application, which can continue to post messages to the queue even when the service isn't available or isn't currently processing messages.
+
+* It can help to maximize scalability because both the number of queues and the number of services can be varied to meet demand.
+
+* It can help to control costs because the number of service instances deployed only have to be adequate to meet average load rather than the peak load.
+
+  > Some services implement throttling[^2-5-4] when demand reaches a threshold beyond which the system could fail. Throttling can reduce the functionality available. You can implement load leveling with these services to ensure that this threshold isn't reached.
+
+**Issues and considerations**
+
+
+
+**When to use this pattern**
+
+
+
+**Example**
+
+
+
+**Next steps**
+
+
+
+**Related guidance**
+
+
+
+
 
 # 3 Miscellaneous
 
@@ -507,3 +559,7 @@ The following patterns might be relevant when implementing this pattern:
 [^1-2-3-7]: ['uzɪ] n.（缅甸的）驯象人，驭象者
 [^1-2-3-8]: vt.& vi.用力擦洗，刷洗; 取消（原有安排）to rub something hard, especially with a stiff brush, in order to clean it
 [^1-2-3-9]: /ˈsʌtlti/ n.精妙，巧妙; 敏锐，敏感; 狡猾，阴险; 细微的差别等 a thought, idea, or detail that is important but difficult to notice or understand
+[^2-5-1]: the need or desire that people have for particular goods and services (=wanted)
+[^2-5-2]: n.看法，观点; 争执 [uncountable] formal argument and disagreement between people
+[^2-5-3]: v.扳平; 使平坦; 夷平; 使相等; 使瞄准 [transitive] (also level something ↔ off/out) to make something flat and smooth
+[^2-5-4]: v.扼杀，压制; 勒死，使窒息; 使节流; （用节汽阀等）调节  to kill or injure someone by holding their throat very tightly so that they cannot breathe **SYN** strangle
